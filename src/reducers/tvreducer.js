@@ -1,8 +1,8 @@
 import {
-    FETCH_TITLE_INFO_REQUEST,
-    FETCH_TITLE_INFO_SUCCESS,
-    FETCH_TITLE_INFO_ERROR
-} from '../actions/getData';
+    FETCH_TV_INFO_REQUEST,
+    FETCH_TV_INFO_SUCCESS,
+    FETCH_TV_INFO_ERROR,
+} from '../actions/tvData';
 
 const initialState = {
     searchTerm: '',
@@ -11,20 +11,20 @@ const initialState = {
     error: null
 }
 
-export default function dataReducer(state = initialState, action) {
-    if (action.type === FETCH_TITLE_INFO_REQUEST){
+export default function tvReducer(state = initialState, action) {
+    if (action.type === FETCH_TV_INFO_REQUEST){
         return Object.assign({}, state, {
             searchTerm: action.searchTerm,
             loading: true,
             error: null
         });
-    } else if (action.type === FETCH_TITLE_INFO_SUCCESS){
+    } else if (action.type === FETCH_TV_INFO_SUCCESS){
         return Object.assign({}, state, {
             titleInfo: action.titleInfo,
             loading: false, 
             error: null
         });
-    } else if (action.type === FETCH_TITLE_INFO_ERROR){
+    } else if (action.type === FETCH_TV_INFO_ERROR){
         return Object.assign({}, state, {
             loading: false,
             error: action.error
