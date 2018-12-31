@@ -1,5 +1,13 @@
 language: node_js
- node_js: node
- cache:
-   directories:
-     - node_modules
+node_js: node
+cache:
+  directories:
+    - node_modules
+
+deploy:
+  provider: heroku
+  api_key:
+    secure: Kjm29kCFFQM3nov/rkJVRsTJQD0CJ0zaj4SLajAWa9GAsohcBEshEdp5gmwu+R39znfPk8sRcABOsV3T99/fZZwLe3tr1rn0zl97KqJt0OMCHGe9jJA90wNvbg4LWBZgIgs+mAUBeWdyBwarasXEJdiHNeOGTbQPUGIl8VSV4fmspv0WGHYkL5WHApV4CoYkTiOYziLWK5W6pbvJZ2vZOLiOcGojxCmIZkyctN8qWkVzI1EPiGXUTdsIVX9uDVsI91f2iH7acJKw4N7CIR9efhxoXWzX+btx5tRgMXnZig8nr3RQefoyApNlfu/A8pt6qGyXwKb0wNCYIxlRsAgRU0tl9zdbABEQJF6jrDYGjc1lNdUrVE/sKCViaC9bbf4qXmTKgtPtT+Y+Wc6Xhn1lrpO7ESenYaF840UL3U6rYnQAcQB/EpafsVbsJ3orTFBK3I1gwAZhSufziMRILJp41136FFlI7FPvysR61HzNlKzEi8tdARLK5Y3pivBHP+7KGRPkATnfSSMyLkKg+tQfBcfkHM9eeUagc1GXcz17hSiuhYFCvnpsnOS3tbCnNccUy2tMPIWCaw0FRCnFVaHckwxlGRqcjOM8ESV8qeMuMMQA0pIXse53OTE0KOoO+GYRYNZcuAo9p3tz5+0FCPxH5CigsqNxOb4tzYTiAbCPjO0=
+  app: gentle-chamber-56864
+  on:
+    repo: thinkful-ei26/jordan-hollywomen-client
