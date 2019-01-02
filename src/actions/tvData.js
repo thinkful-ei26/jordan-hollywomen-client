@@ -1,4 +1,4 @@
-import API_BASE_URL from '../config.js';
+import { API_BASE_URL } from '../config.js';
 
 export const FETCH_TV_INFO_REQUEST = 'FETCH_TV_INFO_REQUEST';
 export const fetchTvInfoRequest = searchTerm => {
@@ -27,13 +27,16 @@ export const fetchTvInfoError = (error) => {
 export const fetchTvInfo = () => dispatch => {
     dispatch(fetchTvInfoRequest ());
     // go to localhost:8080 
-    return fetch(`${API_BASE_URL}/search/tv}`)
+    return fetch(`${API_BASE_URL}/tv/34549}`)
       .then(res => {
         if (!res.ok) {
             throw new Error(res.statusText);
         }
         return res.json();
         })
-      .then(data => dispatch(fetchTvInfoSuccess(data)))
+      .then(data => {
+          console.log(data)
+          dispatch(fetchTvInfoSuccess(data))
+        })
       .catch(err => dispatch(fetchTvInfoError(err)));
   }

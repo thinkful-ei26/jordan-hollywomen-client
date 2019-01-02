@@ -1,23 +1,38 @@
 import React, { Component } from 'react';
 // import './App.css';
+
 import AppInfo from './components/appInfo';
+import Header from './components/header';
+import TvSearchForm from './components/tv-search-form';
+import TvShow from './components/tvShow'
+import MovieSearchForm from './components/movie-search-form';
+import Movie from './components/movie';
+
+import { fetchTvInfo  } from './actions/tvData';
+import { connect } from 'react-redux';
 
 
 class App extends Component {
+  componentDidMount(){
+    this.props.dispatch(fetchTvInfo())
+  };
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-         <h1>HollyWomen</h1>
+        <Header />
          <AppInfo />
-        </header>
-        <form className="search-title">
-         <input type="text" placeholder="--Enter A Title Here--"/>
-         <button type="submit">submit</button>
-        </form>
+         <TvShow />
+         <Movie />
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  console.log(state)
+  return {
+    
+  }
+}
+
+export default connect(mapStateToProps)(App);

@@ -1,4 +1,4 @@
-import API_BASE_URL from '../config.js';
+import { API_BASE_URL } from '../config.js';
 
 export const FETCH_MOVIE_INFO_REQUEST = 'FETCH_MOVIE_INFO_REQUEST';
 export const fetchMovieInfoRequest = searchTerm => {
