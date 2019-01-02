@@ -2,6 +2,7 @@
 
 import React, { Component } from 'react';
 import MovieSearchSection from './movie-search';
+import SearchHistory from './seach-history';
 import { connect } from 'react-redux';
 
 const movieFeedback = (cast) => {
@@ -94,6 +95,7 @@ class Movie extends Component {
                     searchInput={(e) => this.handleCurrentSearch(e)}
                     history={(e) => this.handleSearchHistory(e)}
                 />
+                <SearchHistory searches={this.state.searchHistory} />
             </div>
         );
     }
