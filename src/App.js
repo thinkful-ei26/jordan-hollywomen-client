@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 // import './App.css';
 
-import AppInfo from './components/appInfo';
+import AppInfo from './components/app-info';
 import Header from './components/header';
-import TvShow from './components/tv-show'
-import Movie from './components/movie';
+import SearchForm from './components/search-form';
 
 import { fetchTvInfo  } from './actions/tv-info';
 import { fetchMovieInfo  } from './actions/movie-info';
@@ -20,9 +19,8 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-         <AppInfo />
-         <TvShow />
-         <Movie />
+        <SearchForm />
+        <AppInfo />
       </div>
     );
   }

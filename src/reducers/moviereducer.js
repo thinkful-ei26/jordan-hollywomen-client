@@ -2,7 +2,7 @@ import {
     FETCH_MOVIE_INFO_REQUEST,
     FETCH_MOVIE_INFO_SUCCESS,
     FETCH_MOVIE_INFO_ERROR,
-} from '../actions/movieData';
+} from '../actions/movie-info';
 
 const initialState = {
     searchTerm: '',

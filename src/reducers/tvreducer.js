@@ -2,7 +2,7 @@ import {
     FETCH_TV_INFO_REQUEST,
     FETCH_TV_INFO_SUCCESS,
     FETCH_TV_INFO_ERROR,
-} from '../actions/tvData';
+} from '../actions/tv-info';
 
 const initialState = {
     searchTerm: '',
