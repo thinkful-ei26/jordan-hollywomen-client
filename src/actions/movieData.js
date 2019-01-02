@@ -26,8 +26,7 @@ export const fetchMovieInfoError = (error) => {
 
 export const fetchMovieInfo = () => dispatch => {
     dispatch(fetchMovieInfoRequest ());
-    // go to localhost:8080 
-    return fetch(`${API_BASE_URL}/movie/8053`)
+    return fetch(`${API_BASE_URL}/movie/405774`)
       .then(res => {
         if (!res.ok) {
             throw new Error(res.statusText);

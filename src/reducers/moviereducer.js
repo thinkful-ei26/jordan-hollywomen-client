@@ -20,7 +20,7 @@ export default function movieReducer(state = initialState, action) {
         });
     } else if (action.type === FETCH_MOVIE_INFO_SUCCESS){
         return Object.assign({}, state, {
-            movieInfo: action.titleInfo,
+            movieInfo: action.movieInfo,
             loading: false, 
             error: null
         });

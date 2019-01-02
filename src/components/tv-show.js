@@ -15,7 +15,7 @@ const tvFeedback = (cast) => {
     const roundedNum = Math.round(femaleNum * 100 / cast.length);
     const percentage = Math.round(roundedNum / 10) * 10;
     
-    console.log('this is the TV percentage', percentage)
+    console.log('TV percentage:', percentage)
 
     if (percentage === 100) {
         return 'DOPE! This Tv Show features all women!';
@@ -90,7 +90,6 @@ class TvShow extends Component {
     //submit a tv show
     handleFormSubmit(){
         this.setState({
-            score: this.state.score,
             currentFeedback: tvFeedback(this.state.currentSearch)
         })
     };

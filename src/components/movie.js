@@ -12,7 +12,7 @@ const movieFeedback = (cast) => {
     const roundedNum = Math.round(femaleNum * 100 / cast.length);
     const percentage = Math.round(roundedNum / 10) * 10;
     
-    console.log('this is the Movie percentage', percentage)
+    console.log('Movie percentage:', percentage)
 
     if (percentage === 100) {
         return 'DOPE! This movie features all women!';
@@ -68,7 +68,6 @@ class Movie extends Component {
     //submit a tv show
     handleFormSubmit(){
         this.setState({
-            score: this.state.score,
             currentFeedback: movieFeedback(this.state.currentSearch)
         })
     };
@@ -102,7 +101,6 @@ class Movie extends Component {
 }
 
 const mapStateToProps = (state) => {
-    console.log(state)
     return {
         cast: state.movie.movieInfo.cast || []
     }
