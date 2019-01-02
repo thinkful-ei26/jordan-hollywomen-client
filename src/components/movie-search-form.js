@@ -1,9 +1,9 @@
 import './search-form.css'
 
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
+// import { connect } from 'react-redux';
 
-export class MovieSearchSection extends Component {
+export class MovieSearchForm extends Component {
 
     render(){
         return (
@@ -17,6 +17,6 @@ export class MovieSearchSection extends Component {
     }
 }
 
-export default MovieSearchSection;
+export default MovieSearchForm;
 
 

@@ -6,7 +6,7 @@ import {
 
 const initialState = {
     searchTerm: '',
-    titleInfo: '',
+    movieInfo: '',
     loading: false,
     error: null
 }
@@ -20,7 +20,7 @@ export default function movieReducer(state = initialState, action) {
         });
     } else if (action.type === FETCH_MOVIE_INFO_SUCCESS){
         return Object.assign({}, state, {
-            titleInfo: action.titleInfo,
+            movieInfo: action.titleInfo,
             loading: false, 
             error: null
         });

@@ -2,12 +2,20 @@
 
 import React, { Component } from 'react';
 import MovieSearchSection from './movie-search';
+import { connect } from 'react-redux';
 
-const movieFeedback = (cast, gender) => {
-    const percentage = Math.abs(cast.length / gender);
+const movieFeedback = (cast) => {
+    if (cast.length === 0) {
+        return 'No cast present'
+    }
+    const femaleNum = cast.filter(person => person.gender === 1).length;
+    const roundedNum = Math.round(femaleNum * 100 / cast.length);
+    const percentage = Math.round(roundedNum / 10) * 10;
+    
+    console.log('this is the Movie percentage', percentage)
 
     if (percentage === 100) {
-        return 'DOPE! This Tv Show features all women!';
+        return 'DOPE! This movie features all women!';
     }
     else if (percentage === 90) {
         return '90% female cast, hell yeah!';
@@ -49,11 +57,9 @@ class Movie extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            cast: [
-                {gender: 2},
-                {gender: 2}
-            ],
-            currentSearch: 550,
+            cast: [],
+            isLoaded: false,
+            currentSearch: '',
             currentFeedback: 'Get Your Movie Gender Score!',
             searchHistory: [], //make dynamic
         }
@@ -80,6 +86,7 @@ class Movie extends Component {
     };
 
     render() {
+        console.log(movieFeedback(this.props.cast))
         return (
             <div>
                 <MovieSearchSection
@@ -94,4 +101,11 @@ class Movie extends Component {
 
 }
 
-export default Movie;
+const mapStateToProps = (state) => {
+    console.log(state)
+    return {
+        cast: state.movie.movieInfo.cast || []
+    }
+}
+
+export default connect(mapStateToProps)(Movie);

@@ -6,7 +6,7 @@ import {
 
 const initialState = {
     searchTerm: '',
-    titleInfo: '',
+    tvInfo: '',
     loading: false,
     error: null
 }
@@ -20,7 +20,7 @@ export default function tvReducer(state = initialState, action) {
         });
     } else if (action.type === FETCH_TV_INFO_SUCCESS){
         return Object.assign({}, state, {
-            titleInfo: action.titleInfo,
+            tvInfo: action.tvInfo,
             loading: false, 
             error: null
         });

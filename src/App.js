@@ -3,18 +3,18 @@ import React, { Component } from 'react';
 
 import AppInfo from './components/appInfo';
 import Header from './components/header';
-import TvSearchForm from './components/tv-search-form';
-import TvShow from './components/tvShow'
-import MovieSearchForm from './components/movie-search-form';
+import TvShow from './components/tv-show'
 import Movie from './components/movie';
 
 import { fetchTvInfo  } from './actions/tvData';
+import { fetchMovieInfo  } from './actions/movieData';
 import { connect } from 'react-redux';
 
 
 class App extends Component {
   componentDidMount(){
     this.props.dispatch(fetchTvInfo())
+    this.props.dispatch(fetchMovieInfo())
   };
   render() {
     return (
@@ -29,7 +29,7 @@ class App extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state)
+  // console.log(state)
   return {
     
   }

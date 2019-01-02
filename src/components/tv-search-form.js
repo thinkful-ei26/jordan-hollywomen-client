@@ -1,7 +1,7 @@
 import './search-form.css'
 
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
+// import { connect } from 'react-redux';
 
 export class TvSearchForm extends Component {
 
