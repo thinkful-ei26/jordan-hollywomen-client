@@ -51,7 +51,6 @@ const movieFeedback = (cast) => {
     else {
         return 'No females present. Boo!';
     }
-
 }
 
 class Movie extends Component {
@@ -91,7 +90,7 @@ class Movie extends Component {
             <div>
                 <MovieSearchSection
                     formSubmit={(e) => this.handleFormSubmit(e)}
-                    searchInput={(e) => this.handleCurrentSearch(e)}
+                    search={(e) => this.handleCurrentSearch(e)}
                     history={(e) => this.handleSearchHistory(e)}
                     feedback={this.state.currentFeedback}
                 />
@@ -103,7 +102,6 @@ class Movie extends Component {
 }
 
 const mapStateToProps = (state) => {
-    console.log(state)
     return {
         cast: state.movieCast.movieInfo.cast || []
     }

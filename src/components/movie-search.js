@@ -9,8 +9,8 @@ export default function MovieSearchSection(props) {
             <MovieSearchForm
                 searchInput={(e) => props.searchInput(e)}
                 formSubmit={(e) => props.formSubmit(e)}
-                history={(e) => props.history(e)}
             />
+            <h3 id="history">{props.history}</h3>
         </section>
     );
 }

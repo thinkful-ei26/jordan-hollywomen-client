@@ -9,10 +9,10 @@ export const fetchMovieInfoRequest = searchTerm => {
 };
 
 export const FETCH_MOVIE_INFO_SUCCESS = 'FETCH_MOVIE_INFO_SUCCESS';
-export const fetchMovieInfoSuccess = (movieInfo) => {
+export const fetchMovieInfoSuccess = (movieList) => {
     return {
         type: 'FETCH_MOVIE_INFO_SUCCESS',
-        movieInfo
+        movieList
     }
 }
 
@@ -34,8 +34,8 @@ export const fetchMovieInfo = (searchTerm) => dispatch => {
         return res.json();
         })
       .then(data => {
-        dispatch(fetchMovieInfoSuccess(data.id))
-        return data.id;
+        dispatch(fetchMovieInfoSuccess(data.results))
+        return data.results;
       })
       .catch(err => dispatch(fetchMovieInfoError(err)));
   }

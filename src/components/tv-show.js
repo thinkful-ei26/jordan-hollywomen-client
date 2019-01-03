@@ -103,7 +103,6 @@ class TvShow extends Component {
 }
 
 const mapStateToProps = (state) => {
-    console.log(state)
     return {
         cast: state.tvId.tvInfo.cast || []
     }
