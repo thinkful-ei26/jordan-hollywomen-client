@@ -1,38 +1,38 @@
 import { API_BASE_URL } from '../config.js';
 
-export const FETCH_MOVIE_INFO_REQUEST = 'FETCH_MOVIE_INFO_REQUEST';
-export const fetchMovieInfoRequest = searchTerm => {
+export const FETCH_CAST_INFO_REQUEST = 'FETCH_CAST_INFO_REQUEST';
+export const fetchCastInfoRequest = searchTerm => {
     return {
-        type: 'FETCH_MOVIE_INFO_REQUEST',
+        type: 'FETCH_CAST_INFO_REQUEST',
         searchTerm
     }
 };
 
-export const FETCH_MOVIE_INFO_SUCCESS = 'FETCH_MOVIE_INFO_SUCCESS';
-export const fetchMovieInfoSuccess = (movieInfo) => {
+export const FETCH_CAST_INFO_SUCCESS = 'FETCH_CAST_INFO_SUCCESS';
+export const fetchCastInfoSuccess = (castInfo) => {
     return {
-        type: 'FETCH_MOVIE_INFO_SUCCESS',
-        movieInfo
+        type: 'FETCH_CAST_INFO_SUCCESS',
+        castInfo
     }
 }
 
-export const FETCH_MOVIE_INFO_ERROR = 'FETCH_MOVIE_INFO_ERROR';
-export const fetchMovieInfoError = (error) => {
+export const FETCH_CAST_INFO_ERROR = 'FETCH_CAST_INFO_ERROR';
+export const fetchCastInfoError = (error) => {
     return {
-        type: 'FETCH_MOVIE_INFO_ERROR',
+        type: 'FETCH_CAST_INFO_ERROR',
         error
     }
 }
 
-export const fetchMovieInfo = () => dispatch => {
-    dispatch(fetchMovieInfoRequest ());
-    return fetch(`${API_BASE_URL}/movie/405774`)
+export const fetchMovieCast = (movieId) => dispatch => {
+    dispatch(fetchCastInfoRequest ());
+    return fetch(`${API_BASE_URL}/movie/${movieId}`)
       .then(res => {
         if (!res.ok) {
             throw new Error(res.statusText);
         }
         return res.json();
         })
-      .then(data => dispatch(fetchMovieInfoSuccess(data)))
-      .catch(err => dispatch(fetchMovieInfoError(err)));
+      .then(data => dispatch(fetchCastInfoSuccess(data)))
+      .catch(err => dispatch(fetchCastInfoError(err)));
   }

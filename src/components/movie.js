@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react';
 import MovieSearchSection from './movie-search';
-import SearchHistory from './seach-history';
+// import SearchHistory from './search-history';
 import { connect } from 'react-redux';
 
 const movieFeedback = (cast) => {
@@ -13,7 +13,7 @@ const movieFeedback = (cast) => {
     const roundedNum = Math.round(femaleNum * 100 / cast.length);
     const percentage = Math.round(roundedNum / 10) * 10;
     
-    console.log('Movie percentage:', percentage)
+    // console.log('Movie percentage:', percentage)
 
     if (percentage === 100) {
         return 'DOPE! This movie features all women!';
@@ -23,7 +23,7 @@ const movieFeedback = (cast) => {
     }
     else if (percentage === 80) {
         return '80% female cast, hell yeah!';
-    }
+    } 
     else if (percentage === 70) {
         return '70% female cast, pretty great!';
     }
@@ -61,7 +61,7 @@ class Movie extends Component {
             cast: [],
             isLoaded: false,
             currentSearch: '',
-            currentFeedback: 'Get Your Movie Gender Score!',
+            currentFeedback: 'Movie Gender Score: %',
             searchHistory: [], //make dynamic
         }
     }
@@ -86,16 +86,16 @@ class Movie extends Component {
     };
 
     render() {
-        console.log(movieFeedback(this.props.cast))
+        // console.log(movieFeedback(this.props.cast))
         return (
             <div>
                 <MovieSearchSection
-                    feedback={this.state.currentFeedback}
                     formSubmit={(e) => this.handleFormSubmit(e)}
                     searchInput={(e) => this.handleCurrentSearch(e)}
                     history={(e) => this.handleSearchHistory(e)}
+                    feedback={this.state.currentFeedback}
                 />
-                <SearchHistory searches={this.state.searchHistory} />
+                {/* <SearchHistory searches={this.state.searchHistory} /> */}
             </div>
         );
     }
@@ -103,8 +103,9 @@ class Movie extends Component {
 }
 
 const mapStateToProps = (state) => {
+    console.log(state)
     return {
-        cast: state.movie.movieInfo.cast || []
+        cast: state.movieCast.movieInfo.cast || []
     }
 }
 

@@ -5,10 +5,10 @@ import React from 'react';
 
 export default function SearchForm(props) {
     return (
-        <section class="search-form">
+        <section className="search-form">;
+        <TvShow />
+        <Movie />
             <h2 id="feedback">{props.feedback}</h2>
-            <TvShow />
-            <Movie />
         </section>
     );
 }

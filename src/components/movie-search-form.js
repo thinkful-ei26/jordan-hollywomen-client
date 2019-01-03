@@ -1,20 +1,30 @@
 import React, { Component } from 'react';
+import { fetchMovieInfo } from '../actions/get-movie-id';
+import { fetchMovieCast } from '../actions/movie-info';
 // import { connect } from 'react-redux';
 
-export class MovieSearchForm extends Component {
+export default class MovieSearchForm extends Component {
+    constructor(props){
+        super(props);
+    }
+    
+    search(e){
+        e.preventDefault();
+        this.props.dispatch(fetchMovieInfo(this.search))
+            .then(id => this.props.dispatch(fetchMovieCast(id)))
+    }
 
-    render(){
+    render() {
         return (
-                    <form className="search-form">
-                        <div className="search-movie-title">
-                            <input type="text" placeholder="Enter A Movie Here"/>
-                            <button type="submit">submit</button>
-                        </div>
-                    </form>
+            <form onSubmit={(e) => this.search(e)} className="search-form">
+                <div className="search-movie-title">
+                    <input type="text" name="movie-search" id="movie-search" placeholder="Search Movies" required/>
+                    <button type="submit">submit</button>
+                </div>
+            </form>
         );
     }
 }
 
-export default MovieSearchForm;
-
+// onClick={(e) => props.formSubmit(e.target.value)}
 

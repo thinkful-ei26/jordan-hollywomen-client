@@ -15,7 +15,7 @@ const tvFeedback = (cast) => {
     const roundedNum = Math.round(femaleNum * 100 / cast.length);
     const percentage = Math.round(roundedNum / 10) * 10;
     
-    console.log('TV percentage:', percentage)
+    // console.log('TV percentage:', percentage)
 
     if (percentage === 100) {
         return 'DOPE! This Tv Show features all women!';
@@ -63,29 +63,10 @@ class TvShow extends Component {
             cast: [],//dynamic 
             isLoaded: false,
             currentSearch: '',
-            currentFeedback: 'Get Your TV Gender Score!',
+            currentFeedback: 'TV Show Gender Score: %',
             searchHistory: [], //make dynamic
         }
     }
-
-    // componentDidMount() {
-    //     fetch(`${API_BASE_URL}/tv/:id}`)
-    //       .then(res => res.json())
-    //       .then(
-    //         (result) => {
-    //           this.setState({
-    //             isLoaded: true,
-    //             cast: result.cast
-    //           });
-    //         },
-    //         (error) => {
-    //           this.setState({
-    //             isLoaded: true,
-    //             error
-    //           });
-    //         }
-    //       )
-    //   }
 
     //submit a tv show
     handleFormSubmit(){
@@ -107,13 +88,7 @@ class TvShow extends Component {
     };
 
     render() {
-        // const { error, isLoaded, items } = this.state;
-        // if (error) {
-        //     return <div>Error: {error.message}</div>;
-        // } else if (!isLoaded) {
-        //     return <div>Loading...</div>;
-        // } else {
-            console.log(tvFeedback(this.props.cast))
+            // console.log(tvFeedback(this.props.cast))
         return (
             <div>
                 <TvSearchSection
@@ -128,8 +103,9 @@ class TvShow extends Component {
 }
 
 const mapStateToProps = (state) => {
+    console.log(state)
     return {
-        cast: state.tv.tvInfo.cast || []
+        cast: state.tvId.tvInfo.cast || []
     }
 }
 
