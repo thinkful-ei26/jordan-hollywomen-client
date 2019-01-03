@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import MovieSearchSection from './movie-search';
 // import SearchHistory from './search-history';
 import { connect } from 'react-redux';
+import MovieModal from './movie-modal';
 
 const movieFeedback = (cast) => {
     if (cast.length === 0) {
@@ -92,6 +93,8 @@ class Movie extends Component {
                     formSubmit={(e) => this.handleFormSubmit(e)}
                     search={(e) => this.handleCurrentSearch(e)}
                     history={(e) => this.handleSearchHistory(e)}
+                />
+                <MovieModal 
                     feedback={this.state.currentFeedback}
                 />
                 {/* <SearchHistory searches={this.state.searchHistory} /> */}

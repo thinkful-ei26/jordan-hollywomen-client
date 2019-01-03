@@ -14,6 +14,7 @@ const initialState = {
     searchTerm: '',
     movieInfo: '',
     movieList: [],
+    castInfo: [],
     loading: false,
     error: null
 }

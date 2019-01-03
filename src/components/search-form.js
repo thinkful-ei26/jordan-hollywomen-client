@@ -5,7 +5,7 @@ import React from 'react';
 
 export default function SearchForm(props) {
     return (
-        <section className="search-form">;
+        <section className="search-form">
             <TvShow />
             <Movie />
         </section>
