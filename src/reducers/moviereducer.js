@@ -10,16 +10,22 @@ import {
     FETCH_CAST_INFO_ERROR,
 } from '../actions/movie-info';
 
-const initialState = {
+const movieInitialState = {
     searchTerm: '',
-    movieInfo: '',
     movieList: [],
-    castInfo: [],
+    // castInfo: [],
     loading: false,
     error: null
 }
 
-export function movieIdReducer(state = initialState, action) {
+const castInitialState = {
+    castArray: [],
+    modalVisible: false,
+    loading: false,
+    error: null
+}
+
+export function movieIdReducer(state = movieInitialState, action) {
     if (action.type === FETCH_MOVIE_INFO_REQUEST){
         return Object.assign({}, state, {
             searchTerm: action.searchTerm,
@@ -42,15 +48,17 @@ export function movieIdReducer(state = initialState, action) {
     return state;
 }
 
-export function movieCastReducer(state = initialState, action) {
+export function movieCastReducer(state = castInitialState, action) {
     if (action.type === FETCH_CAST_INFO_REQUEST){
         return Object.assign({}, state, {
             loading: true,
             error: null
         });
     } else if (action.type === FETCH_CAST_INFO_SUCCESS){
+        console.log(action.data)
         return Object.assign({}, state, {
-            castInfo: action.castInfo,
+            castArray: action.data.cast,
+            modalVisible: true,
             loading: false, 
             error: null
         });

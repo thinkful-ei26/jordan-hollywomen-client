@@ -9,10 +9,10 @@ export const fetchCastInfoRequest = searchTerm => {
 };
 
 export const FETCH_CAST_INFO_SUCCESS = 'FETCH_CAST_INFO_SUCCESS';
-export const fetchCastInfoSuccess = (castInfo) => {
+export const fetchCastInfoSuccess = (data) => {
     return {
         type: 'FETCH_CAST_INFO_SUCCESS',
-        castInfo
+        data
     }
 }
 
@@ -24,6 +24,7 @@ export const fetchCastInfoError = (error) => {
     }
 }
 
+//import in modal and pass in movieId
 export const fetchMovieCast = (movieId) => dispatch => {
     dispatch(fetchCastInfoRequest ());
     return fetch(`${API_BASE_URL}/movie/${movieId}`)

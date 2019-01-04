@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { fetchMovieInfo } from '../actions/get-movie-id';
-import { fetchMovieCast } from '../actions/movie-info';
+// import { fetchMovieCast } from '../actions/movie-info';
 import { connect } from 'react-redux';
 // import { API_BASE_URL } from '../config.js';
 import './movie-search-form.css';
@@ -14,9 +14,13 @@ export class MovieSearchForm extends Component {
         e.preventDefault();
         console.log(this.searchTerm.value)
             this.props.dispatch(fetchMovieInfo(this.searchTerm.value))
-            .then(id => {
-                this.props.dispatch(fetchMovieCast(id))})
+            // .then(() => {
+            //     this.props.dispatch(fetchMovieCast(this.props.movieId))})
     }
+
+    // onMovieClick(){
+    //     this.props.dispatch(fetchMovieCast(this.props.movieId))
+    // }
 
     render() {
 
@@ -26,7 +30,7 @@ export class MovieSearchForm extends Component {
 
         // let images = this.props.movieList.map(movie => {
         //     return (
-        //         <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}/>
+        //         <img onClick={() => (this.onMovieClick())} src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt='thumbnail'/>
         //     )
         // })
 
@@ -46,8 +50,8 @@ export class MovieSearchForm extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        movieList: state.movieId.movieList,
-        castInfo: state.movieId.castInfo
+        movieList: state.movieInfo.movieList,
+        castInfo: state.movieInfo.castInfo
     }
 }
 

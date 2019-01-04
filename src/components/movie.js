@@ -106,7 +106,8 @@ class Movie extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        cast: state.movieCast.movieInfo.cast || []
+        cast: state.movieCast.cast || [],
+        searchHistory: state.searchHistory
     }
 }
 
