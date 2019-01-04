@@ -77,7 +77,7 @@ class MovieModal extends Component {
                     style={customStyles}
                     contentLabel="Gender Score Card"
                 >
-                    <h2 ref={subtitle => this.subtitle = subtitle}>View Film Score</h2>
+                    <h2 ref={subtitle => this.subtitle = subtitle}>{this.props.feedback}</h2>
                     <button onClick={this.closeModal}>close</button>
                 </Modal>
                 {images}

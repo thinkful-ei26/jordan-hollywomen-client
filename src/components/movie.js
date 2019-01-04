@@ -61,7 +61,7 @@ class Movie extends Component {
             cast: [],
             isLoaded: false,
             currentSearch: '',
-            currentFeedback: 'Movie Gender Score: %',
+            currentFeedback: '%',
             searchHistory: [], //make dynamic
         }
     }
