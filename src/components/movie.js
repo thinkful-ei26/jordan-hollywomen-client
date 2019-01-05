@@ -1,21 +1,16 @@
-//get cast data and get the percentage
-
 import React, { Component } from 'react';
 import MovieSearchSection from './movie-search';
-// import SearchHistory from './search-history';
 import { connect } from 'react-redux';
 import MovieModal from './movie-modal';
 
 const movieFeedback = (cast) => {
     if (cast.length === 0) {
-        return 'No cast present'
+        return 'Cast information for this film is not available'
     }
     const femaleNum = cast.filter(person => person.gender === 1).length;
     const roundedNum = Math.round(femaleNum * 100 / cast.length);
     const percentage = Math.round(roundedNum / 10) * 10;
     
-    // console.log('Movie percentage:', percentage)
-
     if (percentage === 100) {
         return 'DOPE! This movie features all women!';
     }
@@ -23,13 +18,13 @@ const movieFeedback = (cast) => {
         return '90% female cast, hell yeah!';
     }
     else if (percentage === 80) {
-        return '80% female cast, hell yeah!';
+        return '80% female cast, awesome!';
     } 
     else if (percentage === 70) {
         return '70% female cast, pretty great!';
     }
     else if (percentage === 60) {
-        return '60% female cast, still dominating!'
+        return '60% female cast!'
     }
     else if (percentage === 50) {
         return 'Yin and Yang. 50% Female, 50% Male'
@@ -67,9 +62,9 @@ class Movie extends Component {
     }
 
     //submit a tv show
-    handleFormSubmit(){
+    handleFormSubmit(results){
         this.setState({
-            currentFeedback: movieFeedback(this.state.currentSearch)
+            currentFeedback: movieFeedback(results)
         })
     };
 
@@ -86,7 +81,6 @@ class Movie extends Component {
     };
 
     render() {
-        // console.log(movieFeedback(this.props.cast))
         return (
             <div>
                 <MovieSearchSection
@@ -96,12 +90,11 @@ class Movie extends Component {
                 />
                 <MovieModal 
                     feedback={this.state.currentFeedback}
+                    formSubmit={(e) => this.handleFormSubmit(e)}
                 />
-                {/* <SearchHistory searches={this.state.searchHistory} /> */}
             </div>
         );
     }
-
 }
 
 const mapStateToProps = (state) => {

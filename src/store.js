@@ -11,7 +11,7 @@ export default createStore(
         form: formReducer,
         movieInfo: movieIdReducer,
         movieCast: movieCastReducer,
-        tvId: tvIdReducer,
+        tvInfo: tvIdReducer,
         tvCast: tvCastReducer
     }),
     composeEnhancers(applyMiddleware(thunk))

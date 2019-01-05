@@ -9,10 +9,10 @@ export const fetchTvCastRequest = searchTerm => {
 };
 
 export const FETCH_TV_CAST_SUCCESS = 'FETCH_TV_CAST_SUCCESS';
-export const fetchTvCastSuccess = (tvCastInfo) => {
+export const fetchTvCastSuccess = (data) => {
     return {
         type: 'FETCH_TV_CAST_SUCCESS',
-        tvCastInfo
+        data
     }
 }
 
@@ -24,9 +24,9 @@ export const fetchTvCastError = (error) => {
     }
 }
 
-export const fetchTvCast = () => dispatch => {
+export const fetchTvCast = (tvId) => dispatch => {
     dispatch(fetchTvCastRequest ());
-    return fetch(`${API_BASE_URL}/tv/34549`)
+    return fetch(`${API_BASE_URL}/tv/${tvId}`)
       .then(res => {
         if (!res.ok) {
             throw new Error(res.statusText);

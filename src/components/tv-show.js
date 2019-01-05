@@ -1,22 +1,17 @@
-//get cast data and get the percentage
-
 import React, { Component } from 'react';
 import TvSearchSection from './tv-search';
 import { connect } from 'react-redux';
+import TvModal from './tv-modal';
 
-// import { API_BASE_URL } from '../config.js';
-
-
-const tvFeedback = (cast) => {
-    if (cast.length === 0) {
-        return 'No cast present'
+const tvFeedback = (tvShowCast) => {
+    console.log('this is the cast', tvShowCast)
+    if (tvShowCast.length === 0) {
+        return 'Cast information for this show is not available'
     }
-    const femaleNum = cast.filter(person => person.gender === 1).length;
-    const roundedNum = Math.round(femaleNum * 100 / cast.length);
+    const femaleNum = tvShowCast.filter(person => person.gender === 1).length;
+    const roundedNum = Math.round(femaleNum * 100 / tvShowCast.length);
     const percentage = Math.round(roundedNum / 10) * 10;
     
-    // console.log('TV percentage:', percentage)
-
     if (percentage === 100) {
         return 'DOPE! This Tv Show features all women!';
     }
@@ -24,13 +19,13 @@ const tvFeedback = (cast) => {
         return '90% female cast, hell yeah!';
     }
     else if (percentage === 80) {
-        return '80% female cast, hell yeah!';
+        return '80% female cast, awesome!';
     }
     else if (percentage === 70) {
         return '70% female cast, pretty great!';
     }
     else if (percentage === 60) {
-        return '60% female cast, still dominating!'
+        return '60% female cast,!'
     }
     else if (percentage === 50) {
         return 'Yin and Yang. 50% Female, 50% Male'
@@ -53,25 +48,24 @@ const tvFeedback = (cast) => {
     else {
         return 'No females present. Boo!';
     }
-
 }
 
 class TvShow extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            cast: [],//dynamic 
+            tvShowCast: [],//dynamic 
             isLoaded: false,
             currentSearch: '',
-            currentFeedback: 'TV Show Gender Score: %',
+            currentFeedback: '%',
             searchHistory: [], //make dynamic
         }
     }
 
     //submit a tv show
-    handleFormSubmit(){
+    handleFormSubmit(results){
         this.setState({
-            currentFeedback: tvFeedback(this.state.currentSearch)
+            currentFeedback: tvFeedback(results)
         })
     };
 
@@ -88,14 +82,16 @@ class TvShow extends Component {
     };
 
     render() {
-            // console.log(tvFeedback(this.props.cast))
         return (
             <div>
                 <TvSearchSection
+                    formSubmit={(e) => this.handleFormSubmit(e)}
+                    search={(e) => this.handleCurrentSearch(e)}
+                    history={(e) => this.handleSearchHistory(e)}
+                />
+                <TvModal 
                     feedback={this.state.currentFeedback}
                     formSubmit={(e) => this.handleFormSubmit(e)}
-                    searchInput={(e) => this.handleCurrentSearch(e)}
-                    history={(e) => this.handleSearchHistory(e)}
                 />
             </div>
         );
@@ -103,8 +99,10 @@ class TvShow extends Component {
 }
 
 const mapStateToProps = (state) => {
+    console.log(state)
     return {
-        cast: state.tvId.tvInfo.cast || []
+        tvShowCast: state.tvCast.cast || [],
+        searchHistory: state.searchHistory
     }
 }
 

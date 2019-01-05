@@ -2,7 +2,7 @@ import React, { Component} from 'react';
 import Modal from 'react-modal';
 import { connect } from 'react-redux';
 
-import { fetchMovieCast } from '../actions/movie-info';
+import { fetchTvCast } from '../actions/tv-info';
 
 import './movie-modal.css';
 
@@ -19,7 +19,7 @@ const customStyles = {
 
 Modal.setAppElement('#root')
 
-class MovieModal extends Component {
+class TvModal extends Component {
     constructor() {
         super();
 
@@ -48,9 +48,11 @@ class MovieModal extends Component {
         });
     }
 
-    onMovieClick(movie){
-        this.props.dispatch(fetchMovieCast(movie.id))
+    onTvClick(tvShow){
+        console.log('here i am', tvShow)
+        this.props.dispatch(fetchTvCast(tvShow.id))
         .then(results => {
+            console.log(results)
             this.props.formSubmit(results.data.cast)
         })
         this.openModal()
@@ -60,21 +62,18 @@ class MovieModal extends Component {
             //add on click to image, then dispatch an action that passes the movie id
             //then set up action to make a request with movie id
 
-        let images = this.props.movieList.map((movie, i) => {
-            if (movie.poster_path) {
+        let images = this.props.tvList.map((tvShow, i) => {
+            if (tvShow.poster_path) {
                 return (
-                    <img onClick={() => this.onMovieClick(movie)} 
-                        src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} 
+                    <img onClick={() => this.onTvClick(tvShow)} 
+                        src={`https://image.tmdb.org/t/p/w500${tvShow.poster_path}`} 
                         alt="thumbnail"
                         key={i}/>
                 )
             }
-                return movie.backdrop_path
+                return tvShow.backdrop_path
         })
 
-        // let movieTitle = images.map(image => {
-        //     return (image.title)
-        // })
         return (
             <div>
                 <Modal
@@ -95,11 +94,11 @@ class MovieModal extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        movieList: state.movieInfo.movieList,
-        castInfo: state.movieInfo.castInfo,
-        movieId: state.movieInfo.movieId,
-        modalVisible: state.movieCast.modalVisible
+        tvList: state.tvInfo.tvList,
+        castInfo: state.tvInfo.castInfo,
+        tvId: state.tvInfo.tvId,
+        modalVisible: state.tvCast.modalVisible
     }
 };
 
-export default connect(mapStateToProps)(MovieModal);
+export default connect(mapStateToProps)(TvModal);

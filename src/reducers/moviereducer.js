@@ -13,7 +13,6 @@ import {
 const movieInitialState = {
     searchTerm: '',
     movieList: [],
-    // castInfo: [],
     loading: false,
     error: null
 }
@@ -34,7 +33,6 @@ export function movieIdReducer(state = movieInitialState, action) {
         });
     } else if (action.type === FETCH_MOVIE_INFO_SUCCESS){
         return Object.assign({}, state, {
-            movieInfo: action.movieInfo,
             movieList: action.movieList,
             loading: false, 
             error: null
@@ -55,7 +53,6 @@ export function movieCastReducer(state = castInitialState, action) {
             error: null
         });
     } else if (action.type === FETCH_CAST_INFO_SUCCESS){
-        console.log(action.data)
         return Object.assign({}, state, {
             castArray: action.data.cast,
             modalVisible: true,

@@ -9,10 +9,10 @@ export const fetchTvInfoRequest = searchTerm => {
 };
 
 export const FETCH_TV_INFO_SUCCESS = 'FETCH_TV_INFO_SUCCESS';
-export const fetchTvInfoSuccess = (tvInfo) => {
+export const fetchTvInfoSuccess = (tvList) => {
     return {
         type: 'FETCH_TV_INFO_SUCCESS',
-        tvInfo
+        tvList
     }
 }
 
@@ -33,6 +33,9 @@ export const fetchTvInfo = (searchTerm) => dispatch => {
         }
         return res.json();
         })
-      .then(data => dispatch(fetchTvInfoSuccess(data)))
+      .then(data => {
+        dispatch(fetchTvInfoSuccess(data.results))
+        return data.results;
+        })      
       .catch(err => dispatch(fetchTvInfoError(err)));
   }

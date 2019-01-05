@@ -10,14 +10,21 @@ import {
     FETCH_TV_CAST_ERROR,
 } from '../actions/tv-info';
 
-const initialState = {
+const tvInitialState = {
     searchTerm: '',
-    tvInfo: '',
+    tvList: [],
     loading: false,
     error: null
 }
 
-export function tvIdReducer(state = initialState, action) {
+const castInitialState = {
+    castArray: [],
+    modalVisible: false,
+    loading: false,
+    error: null
+}
+
+export function tvIdReducer(state = tvInitialState, action) {
     if (action.type === FETCH_TV_INFO_REQUEST){
         return Object.assign({}, state, {
             searchTerm: action.searchTerm,
@@ -26,7 +33,7 @@ export function tvIdReducer(state = initialState, action) {
         });
     } else if (action.type === FETCH_TV_INFO_SUCCESS){
         return Object.assign({}, state, {
-            tvInfo: action.tvInfo,
+            tvList: action.tvList,
             loading: false, 
             error: null
         });
@@ -39,15 +46,17 @@ export function tvIdReducer(state = initialState, action) {
     return state;
 }
 
-export function tvCastReducer(state = initialState, action) {
+export function tvCastReducer(state = castInitialState, action) {
     if (action.type === FETCH_TV_CAST_REQUEST){
         return Object.assign({}, state, {
             loading: true,
             error: null
         });
     } else if (action.type === FETCH_TV_CAST_SUCCESS){
+        console.log(action.data)
         return Object.assign({}, state, {
-            castInfo: action.castInfo,
+            castArray: action.data.cast,
+            modalVisible: true,
             loading: false, 
             error: null
         });
