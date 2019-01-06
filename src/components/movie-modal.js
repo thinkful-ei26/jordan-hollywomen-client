@@ -57,29 +57,6 @@ class MovieModal extends Component {
 
     render() {
 
-        // let images = this.props.movieList.map((movie, i) => {
-        //     if (movie.poster_path) {
-        //         return (
-        //             <img onClick={() => this.onMovieClick(movie)} 
-        //                 src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} 
-        //                 alt="thumbnail"
-        //                 key={i}/>
-        //         )
-        //     }
-        //         return movie.backdrop_path
-        // })
-
-        // let titles = images.map((image, i) => {
-        //     if (image.title) {
-        //         return (
-        //             <p onClick={() => this.onMovieClick(image)} 
-        //                 key={i}>{image.title}
-        //             </p>
-        //         )
-        //     }
-        //         return null
-        // })
-
         let displayImagesAndTitles = this.props.movieList.map((movie, i, j, x) => {
             if (movie.poster_path) {
                 return (
@@ -94,13 +71,6 @@ class MovieModal extends Component {
                     </div>  
                 )
             }
-            // if (movie.title) {
-            //     return (
-            //         <p onClick={() => this.onMovieClick(movie)} 
-            //             key={i}>{movie.title}
-            //         </p>
-            //     )
-            // }
                 return movie.backdrop_path
         })
 
@@ -116,9 +86,7 @@ class MovieModal extends Component {
                     <h2 ref={subtitle => this.subtitle = subtitle}>{this.props.feedback}</h2>
                     <button onClick={this.closeModal}>close</button>
                 </Modal>
-                <div>
                     {displayImagesAndTitles}
-                </div>
             </div>    
         );
     }
