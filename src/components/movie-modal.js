@@ -51,30 +51,59 @@ class MovieModal extends Component {
     onMovieClick(movie){
         this.props.dispatch(fetchMovieCast(movie.id))
         .then(results => {
-            this.props.formSubmit(results.data.cast)
-        })
+            this.props.formSubmit(results.data.cast)})
         this.openModal()
     }
 
     render() {
-            //add on click to image, then dispatch an action that passes the movie id
-            //then set up action to make a request with movie id
 
-        let images = this.props.movieList.map((movie, i) => {
+        // let images = this.props.movieList.map((movie, i) => {
+        //     if (movie.poster_path) {
+        //         return (
+        //             <img onClick={() => this.onMovieClick(movie)} 
+        //                 src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} 
+        //                 alt="thumbnail"
+        //                 key={i}/>
+        //         )
+        //     }
+        //         return movie.backdrop_path
+        // })
+
+        // let titles = images.map((image, i) => {
+        //     if (image.title) {
+        //         return (
+        //             <p onClick={() => this.onMovieClick(image)} 
+        //                 key={i}>{image.title}
+        //             </p>
+        //         )
+        //     }
+        //         return null
+        // })
+
+        let displayImagesAndTitles = this.props.movieList.map((movie, i, j, x) => {
             if (movie.poster_path) {
                 return (
-                    <img onClick={() => this.onMovieClick(movie)} 
-                        src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} 
-                        alt="thumbnail"
-                        key={i}/>
+                    <div key={i}>
+                        <img onClick={() => this.onMovieClick(movie)} 
+                            src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} 
+                            alt="thumbnail"
+                            key={j}/>
+                        <p onClick={() => this.onMovieClick(movie)} 
+                            key={x}>{movie.title}
+                        </p>  
+                    </div>  
                 )
             }
+            // if (movie.title) {
+            //     return (
+            //         <p onClick={() => this.onMovieClick(movie)} 
+            //             key={i}>{movie.title}
+            //         </p>
+            //     )
+            // }
                 return movie.backdrop_path
         })
 
-        // let movieTitle = images.map(image => {
-        //     return (image.title)
-        // })
         return (
             <div>
                 <Modal
@@ -87,8 +116,10 @@ class MovieModal extends Component {
                     <h2 ref={subtitle => this.subtitle = subtitle}>{this.props.feedback}</h2>
                     <button onClick={this.closeModal}>close</button>
                 </Modal>
-                {images}
-            </div>
+                <div>
+                    {displayImagesAndTitles}
+                </div>
+            </div>    
         );
     }
 };
