@@ -52,8 +52,8 @@ class TvModal extends Component {
         console.log('here i am', tvShow)
         this.props.dispatch(fetchTvCast(tvShow.id))
         .then(results => {
-            console.log(results)
-            this.props.formSubmit(results.data.cast)
+            console.log('WHAT AM I', results)
+            this.props.tvFormSubmit(results.data.cast)
         })
         this.openModal()
     }

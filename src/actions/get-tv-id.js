@@ -26,7 +26,7 @@ export const fetchTvInfoError = (error) => {
 
 export const fetchTvInfo = (searchTerm) => dispatch => {
     dispatch(fetchTvInfoRequest());
-    return fetch(`${API_BASE_URL}/search/${searchTerm}`)
+    return fetch(`${API_BASE_URL}/search/tv/${searchTerm}`)
       .then(res => {
         if (!res.ok) {
             throw new Error(res.statusText);

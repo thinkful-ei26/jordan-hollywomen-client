@@ -4,8 +4,9 @@ import { connect } from 'react-redux';
 import MovieModal from './movie-modal';
 
 const movieFeedback = (cast) => {
+    console.log('this is the cast', cast)
     if (cast.length === 0) {
-        return 'Cast information for this film is not available'
+        return 'Bummer! Cast information for this film is not available'
     }
     const femaleNum = cast.filter(person => person.gender === 1).length;
     const roundedNum = Math.round(femaleNum * 100 / cast.length);
@@ -57,11 +58,10 @@ class Movie extends Component {
             isLoaded: false,
             currentSearch: '',
             currentFeedback: '%',
-            searchHistory: [], //make dynamic
+            searchHistory: []
         }
     }
 
-    //submit a tv show
     handleFormSubmit(results){
         this.setState({
             currentFeedback: movieFeedback(results)
@@ -85,7 +85,7 @@ class Movie extends Component {
             <div>
                 <MovieSearchSection
                     formSubmit={(e) => this.handleFormSubmit(e)}
-                    search={(e) => this.handleCurrentSearch(e)}
+                    searchInput={(e) => this.handleCurrentSearch(e)}
                     history={(e) => this.handleSearchHistory(e)}
                 />
                 <MovieModal 

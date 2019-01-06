@@ -16,12 +16,14 @@ export class TvSearchForm extends Component {
     render () {
 
         return (
-            <form className="search-form" onSubmit={(e) => this.search(e)}>
-                <div className="search-tv-title">
-                <input ref={(input) => this.searchTerm = input} defaultValue="Family Guy" type="text" name="search-term" id="search-term" placeholder="Search Movies" required/>
-                    <button type="submit">Search TV Shows</button>
-                </div>
-            </form>
+            <div>
+                <form className="search-form" onSubmit={(e) => this.search(e)}>
+                    <div className="search-tv-title">
+                    <input ref={(input) => this.searchTerm = input} defaultValue="Family Guy" type="text" name="search-term" id="search-term" placeholder="Search Tv Shows" required/>
+                        <button type="submit">Search TV Shows</button>
+                    </div>
+                </form>
+            </div>
         );
     }
 }

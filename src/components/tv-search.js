@@ -7,10 +7,12 @@ export default function TvSearchSection(props) {
         <section>
             <h2 id="feedback">{props.feedback}</h2>
             <TvSearchForm 
-                searchInput={(e) => props.searchInput(e)}
-                formSubmit={(e) => props.formSubmit(e)}
+                tvSearchInput={(e) => props.searchInput(e)}
+                tvFormSubmit={(e) => props.formSubmit(e)}
                 history={(e) => props.history(e)}
             />
+            <h3 id="history">{props.searchHistory}</h3>
+
         </section>
     );
 }

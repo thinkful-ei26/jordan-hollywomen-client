@@ -19,7 +19,7 @@ export class MovieSearchForm extends Component {
             <div>
                 <form className="search-form" onSubmit={(e) => this.search(e)}>
                     <div className="search-movie-title">
-                        <input ref={(input) => this.searchTerm = input} defaultValue="godard" type="text" name="search-term" id="search-term" placeholder="Search Movies" required/>
+                        <input ref={(input) => this.searchTerm = input} defaultValue="Godard" type="text" name="search-term" id="search-term" placeholder="Search Movies" required/>
                         <button type="submit">Search Films</button>
                     </div>
                 </form>

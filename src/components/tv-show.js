@@ -3,13 +3,13 @@ import TvSearchSection from './tv-search';
 import { connect } from 'react-redux';
 import TvModal from './tv-modal';
 
-const tvFeedback = (tvShowCast) => {
-    console.log('this is the cast', tvShowCast)
-    if (tvShowCast.length === 0) {
-        return 'Cast information for this show is not available'
+const tvFeedback = (cast) => {
+    console.log('this is the cast', cast)
+    if (cast.length === 0) {
+        return 'Bummer! Cast information for this show is not available'
     }
-    const femaleNum = tvShowCast.filter(person => person.gender === 1).length;
-    const roundedNum = Math.round(femaleNum * 100 / tvShowCast.length);
+    const femaleNum = cast.filter(person => person.gender === 1).length;
+    const roundedNum = Math.round(femaleNum * 100 / cast.length);
     const percentage = Math.round(roundedNum / 10) * 10;
     
     if (percentage === 100) {
@@ -31,19 +31,19 @@ const tvFeedback = (tvShowCast) => {
         return 'Yin and Yang. 50% Female, 50% Male'
     }
     else if (percentage === 40) {
-        return '40% female cast';
+        return 'Decent... 40% female cast';
     }
     else if (percentage === 30) {
-        return '30% female cast';
+        return 'Better than nothing I guess. 30% female cast';
     }
     else if (percentage === 20) {
-        return '20% female cast';
+        return 'Not impressed. 20% female cast';
     }
     else if (percentage === 10) {
-        return '10% female cast'
+        return 'Wow, thanks. 10% female cast'
     }
     else if (percentage === 5) {
-        return '5% female cast'
+        return 'SUPER LAME! 5% female cast'
     }
     else {
         return 'No females present. Boo!';
@@ -54,15 +54,14 @@ class TvShow extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            tvShowCast: [],//dynamic 
+            cast: [],
             isLoaded: false,
             currentSearch: '',
             currentFeedback: '%',
-            searchHistory: [], //make dynamic
+            searchHistory: []
         }
     }
 
-    //submit a tv show
     handleFormSubmit(results){
         this.setState({
             currentFeedback: tvFeedback(results)
@@ -85,13 +84,13 @@ class TvShow extends Component {
         return (
             <div>
                 <TvSearchSection
-                    formSubmit={(e) => this.handleFormSubmit(e)}
-                    search={(e) => this.handleCurrentSearch(e)}
+                    tvFormSubmit={(e) => this.handleFormSubmit(e)}
+                    tvSearchInput={(e) => this.handleCurrentSearch(e)}
                     history={(e) => this.handleSearchHistory(e)}
                 />
                 <TvModal 
                     feedback={this.state.currentFeedback}
-                    formSubmit={(e) => this.handleFormSubmit(e)}
+                    tvFormSubmit={(e) => this.handleFormSubmit(e)}
                 />
             </div>
         );
@@ -101,7 +100,7 @@ class TvShow extends Component {
 const mapStateToProps = (state) => {
     console.log(state)
     return {
-        tvShowCast: state.tvCast.cast || [],
+        cast: state.tvCast.cast || [],
         searchHistory: state.searchHistory
     }
 }
