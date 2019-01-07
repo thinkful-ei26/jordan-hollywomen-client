@@ -1,0 +1,30 @@
+.box {
+  display: inline-block;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  background-color: #fafafa;
+}
+
+.box div{
+  width: 100px;
+  height: 100px;
+}
+
+img {
+ margin: 3.5px;
+ box-align: center;
+ align-self: center;
+ align-content: center;
+}
+
+p {
+ margin: 0px;
+ font-weight: 200;
+ font-size: .75em;
+ text-align: center;
+}
+
+img:hover {
+ transform: scale (1.1);
+}

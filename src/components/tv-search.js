@@ -5,7 +5,6 @@ import TvSearchForm from './tv-search-form';
 export default function TvSearchSection(props) {
     return (
         <section>
-            <h2 id="feedback">{props.feedback}</h2>
             <TvSearchForm 
                 tvSearchInput={(e) => props.searchInput(e)}
                 tvFormSubmit={(e) => props.formSubmit(e)}

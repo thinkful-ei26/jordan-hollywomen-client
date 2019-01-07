@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import { fetchTvCast } from '../actions/tv-info';
 
-import './movie-modal.css';
+import './imagetitledisplay.css';
 
 const customStyles = {
     content : {
@@ -62,13 +62,18 @@ class TvModal extends Component {
             //add on click to image, then dispatch an action that passes the movie id
             //then set up action to make a request with movie id
 
-        let images = this.props.tvList.map((tvShow, i) => {
+        let displayImagesAndTitles = this.props.tvList.map((tvShow, i, j, x) => {
             if (tvShow.poster_path) {
                 return (
-                    <img onClick={() => this.onTvClick(tvShow)} 
-                        src={`https://image.tmdb.org/t/p/w500${tvShow.poster_path}`} 
-                        alt="thumbnail"
-                        key={i}/>
+                    <div className="box" key={i}>
+                        <img onClick={() => this.onTvClick(tvShow)} 
+                            src={`https://image.tmdb.org/t/p/w500${tvShow.poster_path}`} 
+                            alt="thumbnail"
+                            key={j}/>
+                        <p onClick={() => this.onTvClick(tvShow)} 
+                            key={x}>{tvShow.name}
+                        </p>  
+                    </div>    
                 )
             }
                 return tvShow.backdrop_path
@@ -86,7 +91,7 @@ class TvModal extends Component {
                     <h2 ref={subtitle => this.subtitle = subtitle}>{this.props.feedback}</h2>
                     <button onClick={this.closeModal}>close</button>
                 </Modal>
-                {images}
+                {displayImagesAndTitles}
             </div>
         );
     }

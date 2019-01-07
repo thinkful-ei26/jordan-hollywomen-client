@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import { fetchMovieCast } from '../actions/movie-info';
 
-import './movie-modal.css';
+import './imagetitledisplay.css';
 
 const customStyles = {
     content : {
@@ -60,7 +60,7 @@ class MovieModal extends Component {
         let displayImagesAndTitles = this.props.movieList.map((movie, i, j, x) => {
             if (movie.poster_path) {
                 return (
-                    <div key={i}>
+                    <div className="box" key={i}>
                         <img onClick={() => this.onMovieClick(movie)} 
                             src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} 
                             alt="thumbnail"
@@ -86,7 +86,7 @@ class MovieModal extends Component {
                     <h2 ref={subtitle => this.subtitle = subtitle}>{this.props.feedback}</h2>
                     <button onClick={this.closeModal}>close</button>
                 </Modal>
-                    {displayImagesAndTitles}
+                {displayImagesAndTitles}
             </div>    
         );
     }
