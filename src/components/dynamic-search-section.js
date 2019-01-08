@@ -1,11 +1,11 @@
 import React from 'react';
 
-import TvSearchForm from './tv-search-form';
+import DynamicSearchForm from './dynamic-search';
 
-export default function TvSearchSection(props) {
+export default function SearchSection(props) {
     return (
         <section>
-            <TvSearchForm 
+            <DynamicSearchForm
                 searchInput={(e) => props.searchInput(e)}
                 formSubmit={(e) => props.formSubmit(e)}
             />

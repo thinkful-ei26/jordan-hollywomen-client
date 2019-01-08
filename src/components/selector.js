@@ -3,7 +3,6 @@ import Select, { components } from 'react-select';
 import Tooltip from '@atlaskit/tooltip';
 import TvShow from './tv-show';
 import Movie from './movie';
-// import { connect } from 'react-redux';
 
 const options = [
   { value: 'tv', label: 'Search TV' },
@@ -54,7 +53,7 @@ export default class Selector extends React.Component {
         <TvShow />
         <Movie />
         <Select
-          name="search-form"
+          className="search-form"
           value={selectedOption}
           onChange={this.handleChange}
           options={options}
@@ -69,6 +68,11 @@ export default class Selector extends React.Component {
               primary25: 'hotpink',
               primary: 'black',
             },
+            spacing: {
+              baseUnit: 1,
+              controlHeigh: 1,
+              menuGutter: 1
+            }
           })}
         />
       </div>

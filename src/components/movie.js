@@ -92,10 +92,6 @@ class Movie extends Component {
                     searchInput={(e) => this.handleCurrentSearch(e)}
                     history={(e) => this.handleSearchHistory(e)}
                 />
-                {/* <ComboForm
-                    formSubmit={(e) => this.handleFormSubmit(e)}
-                    searchInput={(e) => this.handleCurrentSearch(e)}
-                /> */}
                 <MovieModal 
                     feedback={this.state.currentFeedback}
                     formSubmit={(e) => this.handleFormSubmit(e)}

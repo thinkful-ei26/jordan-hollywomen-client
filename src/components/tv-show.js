@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import TvModal from './tv-modal';
-import TvSearchSection from './tv-search';
+import DynamicSearchSection from './dynamic-search-section';
 // import ComboModal from './combo-modal';
 // import ComboSearchSection from './combo-search-form';
 
@@ -86,7 +86,7 @@ class TvShow extends Component {
     render() {
         return (
             <div>
-                <TvSearchSection
+                <DynamicSearchSection
                     formSubmit={(e) => this.handleFormSubmit(e)}
                     searchInput={(e) => this.handleCurrentSearch(e)}
                     // history={(e) => this.handleSearchHistory(e)}
