@@ -58,7 +58,7 @@ class TvShow extends Component {
             isLoaded: false,
             currentSearch: '',
             currentFeedback: '%',
-            searchHistory: []
+            // searchHistory: []
         }
     }
 
@@ -68,11 +68,11 @@ class TvShow extends Component {
         })
     };
 
-    handleSearchHistory(){
-        this.setState({
-            searchHistory: [...this.state.searchHistory, this.state.currentSearch]
-        })
-    };
+    // handleSearchHistory(){
+    //     this.setState({
+    //         searchHistory: [...this.state.searchHistory, this.state.currentSearch]
+    //     })
+    // };
 
     handleCurrentSearch(e){
         this.setState({
@@ -84,13 +84,13 @@ class TvShow extends Component {
         return (
             <div>
                 <TvSearchSection
-                    tvFormSubmit={(e) => this.handleFormSubmit(e)}
-                    tvSearchInput={(e) => this.handleCurrentSearch(e)}
-                    history={(e) => this.handleSearchHistory(e)}
+                    formSubmit={(e) => this.handleFormSubmit(e)}
+                    searchInput={(e) => this.handleCurrentSearch(e)}
+                    // history={(e) => this.handleSearchHistory(e)}
                 />
                 <TvModal 
                     feedback={this.state.currentFeedback}
-                    tvFormSubmit={(e) => this.handleFormSubmit(e)}
+                    formSubmit={(e) => this.handleFormSubmit(e)}
                 />
             </div>
         );
@@ -101,7 +101,7 @@ const mapStateToProps = (state) => {
     console.log(state)
     return {
         cast: state.tvCast.cast || [],
-        searchHistory: state.searchHistory
+        // searchHistory: state.searchHistory
     }
 }
 

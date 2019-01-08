@@ -4,7 +4,6 @@ import React, { Component } from 'react';
 import AppInfo from './components/app-info';
 import Header from './components/header';
 import SearchForm from './components/search-form';
-// import SearchHistory from './components/search-history';
 
 import { connect } from 'react-redux';
 
@@ -16,7 +15,7 @@ class App extends Component {
       <div className="App">
         <Header />
         <SearchForm />
-        {/* <SearchHistory /> */}
+        <br/><br/><br/>
         <AppInfo />
       </div>
     );

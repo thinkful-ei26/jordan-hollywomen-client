@@ -1,13 +1,15 @@
 import './search-form.css'
-import TvShow from './tv-show';
-import Movie from './movie';
+// import TvShow from './tv-show';
+// import Movie from './movie';
 import React from 'react';
+import Selector from './selector'
 
-export default function SearchForm(props) {
+export default function SearchForm() {
     return (
         <section className="search-form">
-            <TvShow />
-            <Movie />
+            <Selector /><br/><br/>
+            {/* <TvShow /> */}
+            {/* <Movie /> */}
         </section>
     );
 }

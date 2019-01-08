@@ -65,9 +65,9 @@ class MovieModal extends Component {
                             src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} 
                             alt="thumbnail"
                             key={j}/>
-                        <p onClick={() => this.onMovieClick(movie)} 
+                        <li onClick={() => this.onMovieClick(movie)} 
                             key={x}>{movie.title}
-                        </p>  
+                        </li>  
                     </div>  
                 )
             }

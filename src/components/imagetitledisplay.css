@@ -18,11 +18,12 @@ img {
  align-content: center;
 }
 
-p {
+li {
  margin: 0px;
  font-weight: 200;
  font-size: .75em;
  text-align: center;
+ list-style-type: none;
 }
 
 img:hover {

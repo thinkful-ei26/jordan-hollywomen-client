@@ -3,9 +3,6 @@ import { fetchTvInfo } from '../actions/get-tv-id';
 import { connect } from 'react-redux';
 import './movie-search-form.css';
 
-
-// import { connect } from 'react-redux';
-
 export class TvSearchForm extends Component {
 
     search(e){
@@ -19,8 +16,8 @@ export class TvSearchForm extends Component {
             <div>
                 <form className="search-form" onSubmit={(e) => this.search(e)}>
                     <div className="search-tv-title">
-                    <input ref={(input) => this.searchTerm = input} defaultValue="Family Guy" type="text" name="search-term" id="search-term" placeholder="Search Tv Shows" required/>
-                        <button type="submit">Search TV Shows</button>
+                        <input ref={(input) => this.searchTerm = input} defaultValue="Family Guy" type="text" name="search-term" id="search-term" placeholder="Search Tv Shows" required/>
+                            <button type="submit">Search TV Shows</button>
                     </div>
                 </form>
             </div>

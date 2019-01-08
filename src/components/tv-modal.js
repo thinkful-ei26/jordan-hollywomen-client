@@ -14,7 +14,8 @@ const customStyles = {
       bottom                : 'auto',
       marginRight           : '-50%',
       transform             : 'translate(-50%, -50%)'
-    }
+    },
+
   };
 
 Modal.setAppElement('#root')
@@ -49,10 +50,8 @@ class TvModal extends Component {
     }
 
     onTvClick(tvShow){
-        console.log('here i am', tvShow)
         this.props.dispatch(fetchTvCast(tvShow.id))
         .then(results => {
-            console.log('WHAT AM I', results)
             this.props.tvFormSubmit(results.data.cast)
         })
         this.openModal()
@@ -70,9 +69,9 @@ class TvModal extends Component {
                             src={`https://image.tmdb.org/t/p/w500${tvShow.poster_path}`} 
                             alt="thumbnail"
                             key={j}/>
-                        <p onClick={() => this.onTvClick(tvShow)} 
+                        <li onClick={() => this.onTvClick(tvShow)} 
                             key={x}>{tvShow.name}
-                        </p>  
+                        </li>  
                     </div>    
                 )
             }
