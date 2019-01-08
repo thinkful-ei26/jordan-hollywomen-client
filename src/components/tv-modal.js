@@ -52,7 +52,7 @@ class TvModal extends Component {
     onTvClick(tvShow){
         this.props.dispatch(fetchTvCast(tvShow.id))
         .then(results => {
-            this.props.tvFormSubmit(results.data.cast)
+            this.props.formSubmit(results.data.cast)
         })
         this.openModal()
     }

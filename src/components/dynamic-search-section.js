@@ -2,7 +2,7 @@ import React from 'react';
 
 import DynamicSearchForm from './dynamic-search';
 
-export default function SearchSection(props) {
+export default function DynamicSearchSection(props) {
     return (
         <section>
             <DynamicSearchForm

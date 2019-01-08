@@ -2,8 +2,8 @@ import React, { Component} from 'react';
 import Modal from 'react-modal';
 import { connect } from 'react-redux';
 
-import { fetchTvCast } from '../actions/tv-info';
-import { fetchMovieCast } from '../actions/movie-info';
+import { fetchTvCast, fetchMovieCast } from '../actions/get-cast';
+import DynamicDisplay from './dynamic-display';
 
 import './imagetitledisplay.css';
 
@@ -21,12 +21,14 @@ const customStyles = {
 
 Modal.setAppElement('#root')
 
-class ComboModal extends Component {
+class DynamicModal extends Component {
     constructor() {
         super();
 
     this.state = {
-        modalIsOpen: false
+        modalIsOpen: false,
+        tvSelected: false,
+        movieSelected: false
     };
 
     this.openModal = this.openModal.bind(this);
@@ -53,15 +55,18 @@ class ComboModal extends Component {
     onTvClick(tvShow){
         this.props.dispatch(fetchTvCast(tvShow.id))
         .then(results => {
-            this.props.tvFormSubmit(results.data.cast)
+            this.props.formSubmit(results.data.cast)
         })
         this.openModal()
     }
 
     onMovieClick(movie){
+        this.state({
+            movieSelected: true
+        })
         this.props.dispatch(fetchMovieCast(movie.id))
         .then(results => {
-            this.props.movieFormSubmit(results.data.cast)
+            this.props.formSubmit(results.data.cast)
         })
         this.openModal()
     }
@@ -70,44 +75,11 @@ class ComboModal extends Component {
             //add on click to image, then dispatch an action that passes the movie id
             //then set up action to make a request with movie id
 
-        let displayTvImagesAndTitles = this.props.tvList.map((tvShow, i, j, x) => {
-            if (tvShow.poster_path) {
-                return (
-                    <div className="box" key={i}>
-                        <img onClick={() => this.onTvClick(tvShow)} 
-                            src={`https://image.tmdb.org/t/p/w500${tvShow.poster_path}`} 
-                            alt="thumbnail"
-                            key={j}/>
-                        <li onClick={() => this.onTvClick(tvShow)} 
-                            key={x}>{tvShow.name}
-                        </li>  
-                    </div>    
-                )
-            }
-                return tvShow.backdrop_path
-        })
-
-        let displayMovieImagesAndTitles = this.props.movieList.map((movie, i, j, x) => {
-            if (movie.poster_path) {
-                return (
-                    <div className="box" key={i}>
-                        <img onClick={() => this.onMovieClick(movie)} 
-                            src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} 
-                            alt="thumbnail"
-                            key={j}/>
-                        <li onClick={() => this.onMovieClick(movie)} 
-                            key={x}>{movie.title}
-                        </li>  
-                    </div>  
-                )
-            }
-                return movie.backdrop_path
-        })
-
         return (
             <div>
                 <Modal
                     isOpen={this.state.modalIsOpen}
+                    display={(e) => this.dynamicDisplay(e)}
                     onAfterOpen={this.afterOpenModal}
                     onRequestClose={this.closeModal}
                     style={customStyles}
@@ -116,8 +88,7 @@ class ComboModal extends Component {
                     <h2 ref={subtitle => this.subtitle = subtitle}>{this.props.feedback}</h2>
                     <button onClick={this.closeModal}>close</button>
                 </Modal>
-                {displayTvImagesAndTitles}
-                {displayMovieImagesAndTitles}
+                <DynamicDisplay />
             </div>
         );
     }
@@ -125,16 +96,16 @@ class ComboModal extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        tvList: state.tvInfo.tvList,
-        tvCastInfo: state.tvInfo.tvCastInfo,
-        tvId: state.tvInfo.tvId,
-        movieList: state.movieInfo.movieList,
-        movieCastInfo: state.movieInfo.movieCastInfo,
-        movieId: state.movieInfo.movieId,
-        tvModalVisible: state.tvCast.tvModalVisible,
-        movieModalVisible: state.movieCast.movieModalVisible
+        tvList: state.info.tvList,
+        tvCastInfo: state.info.tvCastInfo,
+        tvId: state.info.tvId,
+        tvModalVisible: state.cast.tvModalVisible,
+        movieList: state.info.movieList,
+        movieCastInfo: state.info.movieCastInfo,
+        movieId: state.info.movieId,
+        movieModalVisible: state.cast.movieModalVisible
 
     }
 };
 
-export default connect(mapStateToProps)(ComboModal);
+export default connect(mapStateToProps)(DynamicModal);

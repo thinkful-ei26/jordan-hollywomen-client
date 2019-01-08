@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import MovieModal from './movie-modal';
-import MovieSearchSection from './movie-search';
-// import ComboForm from './redux-form-test';
-// import ComboModal from './combo-modal';
+// import MovieModal from './movie-modal';
+import DynamicSearchSection from './dynamic-search-section';
+import DynamicModal from './dynamic-modal';
 
 
 const movieFeedback = (cast) => {
@@ -87,12 +86,12 @@ class Movie extends Component {
     render() {
         return (
             <div>
-                <MovieSearchSection
+                <DynamicSearchSection
                     formSubmit={(e) => this.handleFormSubmit(e)}
                     searchInput={(e) => this.handleCurrentSearch(e)}
                     history={(e) => this.handleSearchHistory(e)}
                 />
-                <MovieModal 
+                <DynamicModal 
                     feedback={this.state.currentFeedback}
                     formSubmit={(e) => this.handleFormSubmit(e)}
                 />
@@ -103,7 +102,7 @@ class Movie extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        cast: state.movieCast.cast || [],
+        cast: state.cast.cast || [],
         searchHistory: state.searchHistory
     }
 }

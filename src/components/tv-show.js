@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import TvModal from './tv-modal';
+// import TvModal from './tv-modal';
+import DynamicModal from './dynamic-modal';
 import DynamicSearchSection from './dynamic-search-section';
-// import ComboModal from './combo-modal';
-// import ComboSearchSection from './combo-search-form';
+
 
 const tvFeedback = (cast) => {
     console.log('this is the cast', cast)
@@ -91,11 +91,7 @@ class TvShow extends Component {
                     searchInput={(e) => this.handleCurrentSearch(e)}
                     // history={(e) => this.handleSearchHistory(e)}
                 />
-                {/* <ComboSearchSection
-                    formSubmit={(e) => this.handleFormSubmit(e)}
-                    searchInput={(e) => this.handleCurrentSearch(e)}
-                /> */}
-                <TvModal 
+                <DynamicModal 
                     feedback={this.state.currentFeedback}
                     formSubmit={(e) => this.handleFormSubmit(e)}
                 />
@@ -107,7 +103,7 @@ class TvShow extends Component {
 const mapStateToProps = (state) => {
     console.log(state)
     return {
-        cast: state.tvCast.cast || [],
+        cast: state.cast.cast || [],
         // searchHistory: state.searchHistory
     }
 }

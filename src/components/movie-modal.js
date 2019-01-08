@@ -51,7 +51,7 @@ class MovieModal extends Component {
     onMovieClick(movie){
         this.props.dispatch(fetchMovieCast(movie.id))
         .then(results => {
-            this.props.movieFormSubmit(results.data.cast)})
+            this.props.formSubmit(results.data.cast)})
         this.openModal()
     }
 

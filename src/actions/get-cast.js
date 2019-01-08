@@ -37,3 +37,17 @@ export const fetchMovieCast = (movieId) => dispatch => {
       .then(data => dispatch(fetchCastInfoSuccess(data)))
       .catch(err => dispatch(fetchCastInfoError(err)));
   }
+
+  export const fetchTvCast = (tvId) => dispatch => {
+    dispatch(fetchCastInfoRequest ());
+    return fetch(`${API_BASE_URL}/tv/${tvId}`)
+      .then(res => {
+        if (!res.ok) {
+            throw new Error(res.statusText);
+        }
+        return res.json();
+        })
+      .then(data => dispatch(fetchCastInfoSuccess(data)))
+      .catch(err => dispatch(fetchCastInfoError(err)));
+  }
+

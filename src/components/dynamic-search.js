@@ -1,26 +1,11 @@
 import React, { Component } from 'react';
-import { fetchTvInfo } from '../actions/get-tv-id';
-import { fetchMovieInfo } from '../actions/get-movie-id';
+import { fetchTvInfo, fetchMovieInfo } from '../actions/get-ids';
 
 import { connect } from 'react-redux';
 import './movie-search-form.css';
 
 export class DynamicSearchForm extends Component {
 //if first option selected dispatch one else dispatch the other
-
-    optionSelect(option){
-        console.log('Option selected:', {option})
-        option.preventDefault();
-        if (option.id === 1) {
-            console.log('Option id:', option.id)
-            alert("You've selected TV")
-            this.props.dispatch(fetchTvInfo(this.tvSearchTerm.value))
-        }
-        else if (option.id === 2) {
-            alert("You've selected Movies")
-            this.props.dispatch(fetchMovieInfo(this.movieSearchTerm.value))
-        }
-    } 
 
     search(e){
         e.preventDefault();
@@ -30,6 +15,7 @@ export class DynamicSearchForm extends Component {
             this.props.dispatch(fetchTvInfo(this.searchTerm.value))
         }
         else if (this.movieOption.selected === true) {
+            console.log('Option selected:', this.movieOption)
             alert("You've selected Movies")
             this.props.dispatch(fetchMovieInfo(this.searchTerm.value))
         }
@@ -56,10 +42,10 @@ export class DynamicSearchForm extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        tvList: state.tvInfo.tvList,
-        tvCastInfo: state.tvInfo.tvCastInfo,
-        movieList: state.movieInfo.movieList,
-        movieCastInfo: state.movieInfo.movieCastInfo
+        tvList: state.info.tvList,
+        tvCastInfo: state.info.tvCastInfo,
+        movieList: state.info.movieList,
+        movieCastInfo: state.info.movieCastInfo
     }
 }
 
