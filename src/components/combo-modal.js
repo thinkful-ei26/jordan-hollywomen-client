@@ -2,6 +2,7 @@ import React, { Component} from 'react';
 import Modal from 'react-modal';
 import { connect } from 'react-redux';
 
+import { fetchTvCast } from '../actions/tv-info';
 import { fetchMovieCast } from '../actions/movie-info';
 
 import './imagetitledisplay.css';
@@ -14,12 +15,13 @@ const customStyles = {
       bottom                : 'auto',
       marginRight           : '-50%',
       transform             : 'translate(-50%, -50%)'
-    }
+    },
+
   };
 
 Modal.setAppElement('#root')
 
-class MovieModal extends Component {
+class ComboModal extends Component {
     constructor() {
         super();
 
@@ -48,16 +50,44 @@ class MovieModal extends Component {
         });
     }
 
+    onTvClick(tvShow){
+        this.props.dispatch(fetchTvCast(tvShow.id))
+        .then(results => {
+            this.props.tvFormSubmit(results.data.cast)
+        })
+        this.openModal()
+    }
+
     onMovieClick(movie){
         this.props.dispatch(fetchMovieCast(movie.id))
         .then(results => {
-            this.props.movieFormSubmit(results.data.cast)})
+            this.props.movieFormSubmit(results.data.cast)
+        })
         this.openModal()
     }
 
     render() {
+            //add on click to image, then dispatch an action that passes the movie id
+            //then set up action to make a request with movie id
 
-        let displayImagesAndTitles = this.props.movieList.map((movie, i, j, x) => {
+        let displayTvImagesAndTitles = this.props.tvList.map((tvShow, i, j, x) => {
+            if (tvShow.poster_path) {
+                return (
+                    <div className="box" key={i}>
+                        <img onClick={() => this.onTvClick(tvShow)} 
+                            src={`https://image.tmdb.org/t/p/w500${tvShow.poster_path}`} 
+                            alt="thumbnail"
+                            key={j}/>
+                        <li onClick={() => this.onTvClick(tvShow)} 
+                            key={x}>{tvShow.name}
+                        </li>  
+                    </div>    
+                )
+            }
+                return tvShow.backdrop_path
+        })
+
+        let displayMovieImagesAndTitles = this.props.movieList.map((movie, i, j, x) => {
             if (movie.poster_path) {
                 return (
                     <div className="box" key={i}>
@@ -86,19 +116,25 @@ class MovieModal extends Component {
                     <h2 ref={subtitle => this.subtitle = subtitle}>{this.props.feedback}</h2>
                     <button onClick={this.closeModal}>close</button>
                 </Modal>
-                {displayImagesAndTitles}
-            </div>    
+                {displayTvImagesAndTitles}
+                {displayMovieImagesAndTitles}
+            </div>
         );
     }
 };
 
 const mapStateToProps = (state) => {
     return {
+        tvList: state.tvInfo.tvList,
+        tvCastInfo: state.tvInfo.tvCastInfo,
+        tvId: state.tvInfo.tvId,
         movieList: state.movieInfo.movieList,
-        castInfo: state.movieInfo.castInfo,
+        movieCastInfo: state.movieInfo.movieCastInfo,
         movieId: state.movieInfo.movieId,
-        modalVisible: state.movieCast.modalVisible
+        tvModalVisible: state.tvCast.tvModalVisible,
+        movieModalVisible: state.movieCast.movieModalVisible
+
     }
 };
 
-export default connect(mapStateToProps)(MovieModal);
+export default connect(mapStateToProps)(ComboModal);

@@ -7,7 +7,7 @@ export class TvSearchForm extends Component {
 
     search(e){
         e.preventDefault();
-        this.props.dispatch(fetchTvInfo(this.searchTerm.value))
+        this.props.dispatch(fetchTvInfo(this.tvSearchTerm.value))
     }
 
     render () {
@@ -16,7 +16,7 @@ export class TvSearchForm extends Component {
             <div>
                 <form className="search-form" onSubmit={(e) => this.search(e)}>
                     <div className="search-tv-title">
-                        <input ref={(input) => this.searchTerm = input} defaultValue="Family Guy" type="text" name="search-term" id="search-term" placeholder="Search Tv Shows" required/>
+                        <input ref={(input) => this.tvSearchTerm = input} defaultValue="Family Guy" type="text" name="search-term" id="search-term" placeholder="Search Tv Shows" required/>
                             <button type="submit">Search TV Shows</button>
                     </div>
                 </form>

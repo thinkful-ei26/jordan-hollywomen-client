@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
-import MovieSearchSection from './movie-search';
 import { connect } from 'react-redux';
+
 import MovieModal from './movie-modal';
+import MovieSearchSection from './movie-search';
+// import ComboForm from './redux-form-test';
+// import ComboModal from './combo-modal';
+
 
 const movieFeedback = (cast) => {
     console.log('this is the cast', cast)
@@ -58,7 +62,7 @@ class Movie extends Component {
             isLoaded: false,
             currentSearch: '',
             currentFeedback: '%',
-            searchHistory: []
+            // searchHistory: []
         }
     }
 
@@ -68,11 +72,11 @@ class Movie extends Component {
         })
     };
 
-    handleSearchHistory(){
-        this.setState({
-            searchHistory: [...this.state.searchHistory, this.state.currentSearch]
-        })
-    };
+    // handleSearchHistory(){
+    //     this.setState({
+    //         searchHistory: [...this.state.searchHistory, this.state.currentSearch]
+    //     })
+    // };
 
     handleCurrentSearch(e){
         this.setState({
@@ -88,6 +92,10 @@ class Movie extends Component {
                     searchInput={(e) => this.handleCurrentSearch(e)}
                     history={(e) => this.handleSearchHistory(e)}
                 />
+                {/* <ComboForm
+                    formSubmit={(e) => this.handleFormSubmit(e)}
+                    searchInput={(e) => this.handleCurrentSearch(e)}
+                /> */}
                 <MovieModal 
                     feedback={this.state.currentFeedback}
                     formSubmit={(e) => this.handleFormSubmit(e)}

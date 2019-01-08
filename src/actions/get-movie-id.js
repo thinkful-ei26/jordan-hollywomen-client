@@ -24,9 +24,9 @@ export const fetchMovieInfoError = (error) => {
     }
 }
 
-export const fetchMovieInfo = (searchTerm) => dispatch => {
+export const fetchMovieInfo = (movieSearchTerm) => dispatch => {
     dispatch(fetchMovieInfoRequest());
-    return fetch(`${API_BASE_URL}/search/${searchTerm}`)
+    return fetch(`${API_BASE_URL}/search/${movieSearchTerm}`)
       .then(res => {
         if (!res.ok) {
             throw new Error(res.statusText);
