@@ -1,14 +1,14 @@
 import './search-form.css'
 import React from 'react';
 
-import TvShow from './tv-show';
+import DynamicFeedback from './dynamic-feedback';
 
 
 
 export default function SearchForm(props) {
     return (
         <section className="search-form">
-            <TvShow /> 
+            <DynamicFeedback /> 
         </section>
     );
 }
