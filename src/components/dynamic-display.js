@@ -2,7 +2,7 @@ import React, { Component} from 'react';
 import { connect } from 'react-redux';
 
 import { fetchTvCast, fetchMovieCast } from '../actions/get-cast';
-
+import DynamicSearch from './dynamic-search';
 
 import './imagetitledisplay.css';
 
@@ -11,95 +11,81 @@ export class DynamicDisplay extends Component {
         super();
 
     this.state = {
-        tvSubmit: false,
-        movieSubmit: false
+        submit: false,
+        imageClicked: false,
+        optionSelected: 0,
     };
     }
 
-    submit(movie, tvShow){
-        if (this.movieDisplay.selected === true){
+    tvOption(ref) {
+        ref.focus();
+    }
+
+    movieOption(ref) {
+        ref.focus();
+    }
+
+    submit(tvOrMovie, id){
+        if (tvOrMovie === 'movie'){
             this.setState({
-                movieSubmit: true,
+                imageClicked: this.currentImage.image,
+                submit: true,
             })
-            this.props.dispatch(fetchMovieCast(movie.id))
+            this.props.dispatch(fetchMovieCast(id))
             .then(results => {
-                this.props.formSubmit(results.data.cast)})
+            this.props.formSubmit(results.data.cast)
+            })
         }
-        else if (this.tvDisplay.selected === true){
+
+        else if (tvOrMovie === 'tv'){
             this.setState({
-                tvSubmit: true,
+                imageClicked: this.currentImage.image,
+                submit: true,
             })
-            this.props.dispatch(fetchTvCast(tvShow.id))
+            this.props.dispatch(fetchTvCast(id))
             .then(results => {
-                this.props.formSubmit(results.data.cast)})
+                console.log('results:', results)
+            this.props.formSubmit(results.data.cast)
+            })
         }
     }
 
     clearSubmit(){
         this.setState({
             tvSubmit: false,
-            movieSubmit: false
+            movieSubmit: false,
         })
     }
 
-
+    
 render() {
     //add on click to image, then dispatch an action that passes the movie id
     //then set up action to make a request with movie id
-
-    // let tvImagesAndTitles = this.props.tvList.map((tvShow, i, j, x) => {
-    //     if (tvShow.poster_path) {
-    //         return (
-    //             <div className="box" key={i}>
-    //                 <img onClick={() => this.submit(tvShow)} 
-    //                     src={`https://image.tmdb.org/t/p/w500${tvShow.poster_path}`} 
-    //                     alt="thumbnail"
-    //                     key={j}/>
-    //                 <li key={x}>{tvShow.name}</li>  
-    //             </div>    
-    //         )
-    //     }
-    //         return tvShow.backdrop_path
-    // })
-
-    // let movieImagesAndTitles = this.props.movieList.map((movie, i, j, x) => {
-    //     if (movie.poster_path) {
-    //         return (
-    //             <div className="box" key={i}>
-    //                 <img onClick={() => this.submit(movie)} 
-    //                     src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} 
-    //                     alt="thumbnail"
-    //                     key={j}/>
-    //                 <li key={x}>{movie.title}</li>  
-    //             </div>  
-    //         )
-    //     }
-    //         return movie.backdrop_path
-    // })
-
-    let imagesAndTitles = this.props.movieList.map((movie, i, j, x) => {
-        if (movie.poster_path) {
+    let imagesAndTitles = this.props.movieList.map((title, i, j, x) => {
+        if (title.poster_path) {
+            const tvOrMovie = title.title ? 'movie' : 'tv'
             return (
                 <div className="box" key={i}>
-                    <img onClick={() => this.submit(movie)} 
-                        src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} 
+                    <img onClick={() => this.submit(tvOrMovie, title.id)} 
+                        src={`https://image.tmdb.org/t/p/w500${title.poster_path}`} 
                         alt="thumbnail"
                         key={j}/>
-                    <li key={x}>{movie.title || movie.name}</li>  
+                    <li key={x}>{title.title || title.name}</li>  
                 </div>  
             )
         }
-            return movie.backdrop_path
+            return title.backdrop_path
     })
 
     return (
         <section className = "dynamic-display" onSubmit={() => this.submit()}>
-            <div ref={(movie) => this.movieDisplay = movie} onSubmit={() => this.clearSubmit()}>
+            <div className="display" ref={(image) => this.currentImage = image} onSubmit={() => this.clearSubmit()}>
                 {imagesAndTitles}
             </div>
-            {/* <div ref={(tv) => this.tvDisplay = tv} onSubmit={() => this.clearSubmit()}>
-                {tvImagesAndTitles}
-            </div> */}
+            <DynamicSearch 
+                tvOption={this.tvOption}
+                movieOption={this.movieOption}
+            />
         </section>
     );
 }
@@ -107,15 +93,9 @@ render() {
 
 const mapStateToProps = (state) => {
     return {
-        // tvList: state.tvInfo.tvList,
-        // tvCastInfo: state.tvInfo.tvCastInfo,
-        // tvId: state.tvInfo.tvId,
-        // tvModalVisible: state.tvCast.tvModalVisible,
+        castInfo: state.info.castInfo,
         movieList: state.info.movieList,
-        movieCastInfo: state.info.movieCastInfo,
         movieId: state.info.movieId,
-        movieModalVisible: state.cast.movieModalVisible
-
     }
 };
 

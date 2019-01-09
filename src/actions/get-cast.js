@@ -25,9 +25,9 @@ export const fetchCastInfoError = (error) => {
 }
 
 //import in modal and pass in movieId
-export const fetchMovieCast = (movieId) => dispatch => {
+export const fetchMovieCast = (id) => dispatch => {
     dispatch(fetchCastInfoRequest ());
-    return fetch(`${API_BASE_URL}/movie/${movieId}`)
+    return fetch(`${API_BASE_URL}/movie/${id}`)
       .then(res => {
         if (!res.ok) {
             throw new Error(res.statusText);
@@ -38,9 +38,9 @@ export const fetchMovieCast = (movieId) => dispatch => {
       .catch(err => dispatch(fetchCastInfoError(err)));
   }
 
-  export const fetchTvCast = (tvId) => dispatch => {
+  export const fetchTvCast = (id) => dispatch => {
     dispatch(fetchCastInfoRequest ());
-    return fetch(`${API_BASE_URL}/tv/${tvId}`)
+    return fetch(`${API_BASE_URL}/tv/${id}`)
       .then(res => {
         if (!res.ok) {
             throw new Error(res.statusText);

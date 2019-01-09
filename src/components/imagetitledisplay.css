@@ -1,5 +1,6 @@
 .box {
-  display: inline-block;
+  display: flex;
+  width: 120px;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
@@ -11,11 +12,18 @@
   height: 100px;
 }
 
+.display {
+    display: flex;
+    justify-content: center;
+    /* width: fit-content; */
+}
+
 img {
- margin: 3.5px;
+ margin: auto;
  box-align: center;
  align-self: center;
  align-content: center;
+ max-height: 150px;
 }
 
 li {

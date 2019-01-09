@@ -1,22 +1,25 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-// import TvModal from './tv-modal';
 import DynamicModal from './dynamic-modal';
-import DynamicSearchSection from './dynamic-search-section';
+// import DynamicSearch from './dynamic-search';
 
 
 const tvFeedback = (cast) => {
-    console.log('this is the cast', cast)
     if (cast.length === 0) {
         return 'Bummer! Cast information for this show is not available'
     }
+
+    if (cast === null) {
+        return alert('Invalid search. Perhaps you meant to search a different media type?')
+    }
+
     const femaleNum = cast.filter(person => person.gender === 1).length;
     const roundedNum = Math.round(femaleNum * 100 / cast.length);
     const percentage = Math.round(roundedNum / 10) * 10;
     
     if (percentage === 100) {
-        return 'DOPE! This Tv Show features all women!';
+        return 'Add to your favorites! This cast features all women!';
     }
     else if (percentage === 90) {
         return '90% female cast, hell yeah!';
@@ -61,13 +64,21 @@ class TvShow extends Component {
             isLoaded: false,
             currentSearch: '',
             currentFeedback: '%',
+            modalOpen: false,
             // searchHistory: []
         }
     }
 
+    closeModal() {
+        this.setState({
+            modalOpen: false
+        });
+    }
+
     handleFormSubmit(results){
         this.setState({
-            currentFeedback: tvFeedback(results)
+            currentFeedback: tvFeedback(results),
+            modalOpen: true
         })
     };
 
@@ -86,14 +97,11 @@ class TvShow extends Component {
     render() {
         return (
             <div>
-                <DynamicSearchSection
-                    formSubmit={(e) => this.handleFormSubmit(e)}
-                    searchInput={(e) => this.handleCurrentSearch(e)}
-                    // history={(e) => this.handleSearchHistory(e)}
-                />
                 <DynamicModal 
+                    modalOpen={this.state.modalOpen}
                     feedback={this.state.currentFeedback}
                     formSubmit={(e) => this.handleFormSubmit(e)}
+                    closeModal={(e) => this.closeModal(e)}
                 />
             </div>
         );

@@ -2,7 +2,7 @@ import React, { Component} from 'react';
 import Modal from 'react-modal';
 import { connect } from 'react-redux';
 
-import { fetchTvCast, fetchMovieCast } from '../actions/get-cast';
+// import { fetchTvCast, fetchMovieCast } from '../actions/get-cast';
 import DynamicDisplay from './dynamic-display';
 
 import './imagetitledisplay.css';
@@ -28,12 +28,12 @@ class DynamicModal extends Component {
     this.state = {
         modalIsOpen: false,
         tvSelected: false,
-        movieSelected: false
+        movieSelected: false,
+        clicked: false
     };
 
     this.openModal = this.openModal.bind(this);
     this.afterOpenModal = this.afterOpenModal.bind(this);
-    this.closeModal = this.closeModal.bind(this);
     }
 
     openModal() {
@@ -43,52 +43,29 @@ class DynamicModal extends Component {
     }
 
     afterOpenModal(){
-        this.subtitle.style.color = '#f00';
-    }
-
-    closeModal() {
-        this.setState({
-            modalIsOpen: false
-        });
-    }
-
-    onTvClick(tvShow){
-        this.props.dispatch(fetchTvCast(tvShow.id))
-        .then(results => {
-            this.props.formSubmit(results.data.cast)
-        })
-        this.openModal()
-    }
-
-    onMovieClick(movie){
-        this.state({
-            movieSelected: true
-        })
-        this.props.dispatch(fetchMovieCast(movie.id))
-        .then(results => {
-            this.props.formSubmit(results.data.cast)
-        })
-        this.openModal()
+        this.subtitle.style.color = '#f442c2';
     }
 
     render() {
-            //add on click to image, then dispatch an action that passes the movie id
-            //then set up action to make a request with movie id
-
         return (
             <div>
                 <Modal
-                    isOpen={this.state.modalIsOpen}
+                    isOpen={this.props.modalOpen}
                     display={(e) => this.dynamicDisplay(e)}
                     onAfterOpen={this.afterOpenModal}
-                    onRequestClose={this.closeModal}
                     style={customStyles}
                     contentLabel="Gender Score Card"
                 >
                     <h2 ref={subtitle => this.subtitle = subtitle}>{this.props.feedback}</h2>
-                    <button onClick={this.closeModal}>close</button>
+                    <button onClick={this.props.closeModal}>close</button>
                 </Modal>
-                <DynamicDisplay />
+                <DynamicDisplay 
+                    formSubmit={this.props.formSubmit}
+                    isOpen={this.props.modalOpen}
+                    display={(e) => this.dynamicDisplay(e)}
+                    style={customStyles}
+                    contentLabel="Gender Score Card"
+                />
             </div>
         );
     }
@@ -98,11 +75,10 @@ const mapStateToProps = (state) => {
     return {
         tvList: state.info.tvList,
         tvCastInfo: state.info.tvCastInfo,
-        tvId: state.info.tvId,
         tvModalVisible: state.cast.tvModalVisible,
         movieList: state.info.movieList,
         movieCastInfo: state.info.movieCastInfo,
-        movieId: state.info.movieId,
+        movieId: state.info.id,
         movieModalVisible: state.cast.movieModalVisible
 
     }

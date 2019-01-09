@@ -4,7 +4,7 @@ import { fetchTvInfo, fetchMovieInfo } from '../actions/get-ids';
 import { connect } from 'react-redux';
 import './movie-search-form.css';
 
-export class DynamicSearchForm extends Component {
+export class DynamicSearch extends Component {
 //if first option selected dispatch one else dispatch the other
 
     search(e){
@@ -24,13 +24,14 @@ export class DynamicSearchForm extends Component {
     render () {
 
         return (
+        
             <div>
                 <form className="search-form" onSubmit={(e) => this.search(e)}>
                     <div className="search-tv-title">
                         <input ref={(input) => this.searchTerm = input} type="text" name="search-term" id="search-term" placeholder="Search Tv or Movies" required/>
                         <select>
-                            <option id="1" ref={(optionOne) => this.tvOption = optionOne} required>TV</option>
-                            <option id="2" ref={(optionTwo) => this.movieOption = optionTwo} required>Movies</option>  
+                            <option id="1" ref={(tvOption) => this.tvOption = tvOption} required>TV</option>
+                            <option id="2" ref={(movieOption) => this.movieOption = movieOption} required>Movies</option>  
                         </select><br/>
                             <button type="submit">Search!!!</button>
                     </div>
@@ -49,5 +50,27 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps)(DynamicSearchForm);
+export default connect(mapStateToProps)(DynamicSearch);
 
+// const OptionOne = React.forwardRef((props, ref) => (
+//     <option ref={tvOption} className="option-one">
+//         {props.children}
+//     </option>
+// ))
+
+// const OptionTwo = React.forwardRef((props, ref) => (
+//     <option ref={movieOption} className="option-two">
+//         {props.children}
+//     </option>
+// ))
+
+// const SelectOption = React.forwardRef((props, ref) => (
+//     <select ref={selection}>
+//         <OptionOne id="1" ref={tvOption} required>TV</OptionOne>
+//         <OptionTwo id="2" ref={movieOption} required>Movies</OptionTwo> 
+//     </select>
+// ))
+
+// const tvOption = React.createRef();
+// const movieOption = React.createRef();
+// const selection = React.createRef();
