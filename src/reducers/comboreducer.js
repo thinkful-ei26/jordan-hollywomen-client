@@ -10,8 +10,23 @@ import {
     FETCH_CAST_INFO_ERROR,
 } from '../actions/get-cast';
 
+import {
+    FETCH_HISTORY_REQUEST,
+    FETCH_HISTORY_SUCCESS,
+    FETCH_HISTORY_ERROR,
+
+} from '..actions/get-history';
+
+import {
+    FETCH_ADD_HISTORY_REQUEST,
+    FETCH_ADD_HISTORY_SUCCESS,
+    FETCH_ADD_HISTORY_ERROR,
+
+} from '..actions/add-history';
+
 const initialState = {
     searchTerm: '',
+    searchDate: '',
     movieList: [],
     loading: false,
     error: null
@@ -68,47 +83,46 @@ export function castReducer(state = castInitialState, action) {
     return state;
 }
 
-// export function tvIdReducer(state = initialState, action) {
-//     if (action.type === FETCH_TV_INFO_REQUEST){
-//         return Object.assign({}, state, {
-//             searchTerm: action.searchTerm,
-//             loading: true,
-//             error: null
-//         });
-//     } else if (action.type === FETCH_TV_INFO_SUCCESS){
-//         return Object.assign({}, state, {
-//             tvList: action.tvList,
-//             loading: false, 
-//             error: null
-//         });
-//     } else if (action.type === FETCH_TV_INFO_ERROR){
-//         return Object.assign({}, state, {
-//             loading: false,
-//             error: action.error
-//         })
-//     }
-//     return state;
-// }
+export function getHistoryReducer(state = initialState, action){
+    if (action.type === FETCH_HISTORY_REQUEST){
+        return Object.assign({}, state, {
+            loading: true,
+            error: null
+        });
+    } else if (action.type === FETCH_HISTORY_SUCCESS){
+        return Object.assign({}, state, {
+            searchTerm: action.searchTerm,
+            searchDate: action.searchDate,
+            loading: false, 
+            error: null
+        });
+    } else if (action.type === FETCH_HISTORY_ERROR){
+        return Object.assign({}, state, {
+            loading: false,
+            error: action.error
+        })
+    }
+    return state;
+}
 
-// export function tvCastReducer(state = castInitialState, action) {
-//     if (action.type === FETCH_TV_CAST_REQUEST){
-//         return Object.assign({}, state, {
-//             loading: true,
-//             error: null
-//         });
-//     } else if (action.type === FETCH_TV_CAST_SUCCESS){
-//         console.log(action.data)
-//         return Object.assign({}, state, {
-//             castArray: action.data.cast,
-//             modalVisible: true,
-//             loading: false, 
-//             error: null
-//         });
-//     } else if (action.type === FETCH_TV_CAST_ERROR){
-//         return Object.assign({}, state, {
-//             loading: false,
-//             error: action.error
-//         })
-//     }
-//     return state;
-// }
+export function addHistoryReducer(state = initialState, action){
+    if (action.type === FETCH_HISTORY_REQUEST){
+        return Object.assign({}, state, {
+            searchTerm: action.searchTerm,
+            searchDate: action.searchDate,
+            loading: true,
+            error: null
+        });
+    } else if (action.type === FETCH_HISTORY_SUCCESS){
+        return Object.assign({}, state, {
+            loading: false, 
+            error: null
+        });
+    } else if (action.type === FETCH_HISTORY_ERROR){
+        return Object.assign({}, state, {
+            loading: false,
+            error: action.error
+        })
+    }
+    return state;
+}

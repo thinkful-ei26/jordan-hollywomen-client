@@ -32,7 +32,7 @@ export const fetchAddHistory = (id) => dispatch => {
         }
         return res.json();
         })
-      .then(data => dispatch(fetchHistorySuccess(data)))
-      .catch(err => dispatch(fetchHistoryError(err)));
+      .then(data => dispatch(fetchAddHistorySuccess(data)))
+      .catch(err => dispatch(fetchAddHistoryError(err)));
   }
 
