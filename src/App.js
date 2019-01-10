@@ -5,10 +5,10 @@ import AppInfo from './components/app-info';
 import Header from './components/header';
 import SearchForm from './components/search-form';
 
-import { connect } from 'react-redux';
+// import { connect } from 'react-redux';
 
 
-class App extends Component {
+export default class App extends Component {
 
   render() {
     return (
@@ -22,11 +22,11 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  // console.log(state)
-  return {
+// const mapStateToProps = (state) => {
+//   // console.log(state)
+//   return {
     
-  }
-}
+//   }
+// }
 
-export default connect(mapStateToProps)(App);
+// export default connect(mapStateToProps)(App);

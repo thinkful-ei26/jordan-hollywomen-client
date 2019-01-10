@@ -19,7 +19,7 @@ const customStyles = {
 
   };
 
-Modal.setAppElement('#root')
+Modal.setAppElement()
 
 class DynamicModal extends Component {
     constructor() {

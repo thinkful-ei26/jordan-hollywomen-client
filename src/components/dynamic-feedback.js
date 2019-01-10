@@ -116,4 +116,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps)(TvShow);
+export default connect(mapStateToProps)(DynamicFeedback);
