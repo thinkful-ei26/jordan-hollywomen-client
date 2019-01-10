@@ -22,7 +22,7 @@ export const fetchHistoryError = (error) => {
         error
     }
 }
-
+ 
 export const fetchHistory = () => dispatch => {
     dispatch(fetchHistoryRequest ());
     return fetch(`${API_BASE_URL}/history`)
