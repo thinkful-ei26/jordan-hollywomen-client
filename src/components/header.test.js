@@ -9,7 +9,7 @@ describe('<Header />', () => {
     });
 
     it('Renders the text', () => {
-        const text = "Foo";
+        const text = "HollyWomen";
         const wrapper = shallow(<Header text={text} />);
         expect(wrapper.text()).toEqual(text);
     });
