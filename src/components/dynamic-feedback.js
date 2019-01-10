@@ -62,10 +62,8 @@ class DynamicFeedback extends Component {
         this.state = {
             cast: [],
             isLoaded: false,
-            currentSearch: '',
             currentFeedback: '%',
             modalOpen: false,
-            // searchHistory: []
         }
     }
 
@@ -79,18 +77,6 @@ class DynamicFeedback extends Component {
         this.setState({
             currentFeedback: tvFeedback(results),
             modalOpen: true
-        })
-    };
-
-    // handleSearchHistory(){
-    //     this.setState({
-    //         searchHistory: [...this.state.searchHistory, this.state.currentSearch]
-    //     })
-    // };
-
-    handleCurrentSearch(e){
-        this.setState({
-            currentSearch: e
         })
     };
 
@@ -109,7 +95,6 @@ class DynamicFeedback extends Component {
 }
 
 const mapStateToProps = (state) => {
-    console.log(state)
     return {
         cast: state.cast.cast || [],
         // searchHistory: state.searchHistory

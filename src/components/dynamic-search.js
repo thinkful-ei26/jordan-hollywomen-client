@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import { fetchTvInfo, fetchMovieInfo } from '../actions/get-ids';
+import { fetchAddHistory } from '../actions/add-history';
 
 import { connect } from 'react-redux';
+import DynamicHistory from './dynamic-history';
+
 import './movie-search-form.css';
 
 export class DynamicSearch extends Component {
@@ -9,16 +12,14 @@ export class DynamicSearch extends Component {
 
     search(e){
         e.preventDefault();
+        const searchTerm = this.searchTerm.value
         if (this.tvOption.selected === true) {
-            console.log('Option selected:', this.tvOption)
-            alert("You've selected TV")
-            this.props.dispatch(fetchTvInfo(this.searchTerm.value))
+            this.props.dispatch(fetchTvInfo(searchTerm))
         }
         else if (this.movieOption.selected === true) {
-            console.log('Option selected:', this.movieOption)
-            alert("You've selected Movies")
-            this.props.dispatch(fetchMovieInfo(this.searchTerm.value))
+            this.props.dispatch(fetchMovieInfo(searchTerm))
         }
+        this.props.dispatch(fetchAddHistory(searchTerm))
     }
 
     render () {
@@ -33,8 +34,9 @@ export class DynamicSearch extends Component {
                             <option id="1" ref={(tvOption) => this.tvOption = tvOption} required>TV</option>
                             <option id="2" ref={(movieOption) => this.movieOption = movieOption} required>Movies</option>  
                         </select><br/>
-                            <button type="submit">Search!!!</button>
+                            <button type="submit">Search!!!</button><br/><br/>
                     </div>
+                    <DynamicHistory />
                 </form>
             </div>
         );
@@ -46,7 +48,7 @@ const mapStateToProps = (state) => {
         tvList: state.info.tvList,
         tvCastInfo: state.info.tvCastInfo,
         movieList: state.info.movieList,
-        movieCastInfo: state.info.movieCastInfo
+        movieCastInfo: state.info.movieCastInfo,
     }
 }
 

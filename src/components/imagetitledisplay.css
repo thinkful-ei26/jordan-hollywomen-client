@@ -38,3 +38,15 @@ li {
 img:hover {
  transform: scale (1.1);
 }
+
+.dynamic-history {
+  display: inline-block;
+  width: 170px;
+  border: 1px solid rgb(114, 172, 172)
+}
+
+button.clear-history {
+  display: inline-flex;
+  height: 15px;
+  box-align: center;
+}

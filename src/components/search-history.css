@@ -1,15 +1,16 @@
 ul.searchBox {
-	height: 80px;
-	margin: 10px auto 0;
-	background: #11a8ab;
+	font-size: 15px;
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+	margin-left: 5px;
+	margin-right: 5px;
+	background: #dfdcdc;
 	padding: 0.5em;
-	display: block;
-	line-height: 2em;
-	border-bottom-left-radius: 4px;
-	border-bottom-right-radius: 4px;
-	color: #fff;
+	color: rgb(1, 17, 7);
 	overflow: auto;
+	border-radius: 3px;
+	line-height: 1.4em;
 }
+
 ul.searchBox li {
 	display: inline;
 	background-color: #1a4e95;
@@ -17,7 +18,6 @@ ul.searchBox li {
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
 	border-radius: 4px;
-	width: 95%;
 	margin: 0.2em;
-	color: #fff;
+	color: rgb(255, 255, 255);
 }

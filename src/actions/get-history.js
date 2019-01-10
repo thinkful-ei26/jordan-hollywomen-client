@@ -8,10 +8,10 @@ export const fetchHistoryRequest = () => {
 };
 
 export const FETCH_HISTORY_SUCCESS = 'FETCH_HISTORY_SUCCESS';
-export const fetchHistorySuccess = (data) => {
+export const fetchHistorySuccess = (recentSearches) => {
     return {
         type: 'FETCH_HISTORY_SUCCESS',
-        data
+        recentSearches
     }
 }
 
@@ -25,7 +25,7 @@ export const fetchHistoryError = (error) => {
  
 export const fetchHistory = () => dispatch => {
     dispatch(fetchHistoryRequest ());
-    return fetch(`${API_BASE_URL}/history`)
+    return fetch(`${API_BASE_URL}/search/history`)
       .then(res => {
         if (!res.ok) {
             throw new Error(res.statusText);

@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import AppInfo from './components/app-info';
 import Header from './components/header';
 import SearchForm from './components/search-form';
+// import SearchHistory from './components/dynamic-history';
 
 // import { connect } from 'react-redux';
 
@@ -15,6 +16,7 @@ export default class App extends Component {
       <div className="App">
         <Header />
         <SearchForm />
+        {/* <SearchHistory /> */}
         <br/><br/><br/>
         <AppInfo />
       </div>

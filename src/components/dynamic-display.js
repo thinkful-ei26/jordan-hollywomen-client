@@ -44,7 +44,6 @@ export class DynamicDisplay extends Component {
             })
             this.props.dispatch(fetchTvCast(id))
             .then(results => {
-                console.log('results:', results)
             this.props.formSubmit(results.data.cast)
             })
         }
@@ -52,15 +51,18 @@ export class DynamicDisplay extends Component {
 
     clearSubmit(){
         this.setState({
-            tvSubmit: false,
-            movieSubmit: false,
+            submit: false,
         })
     }
 
+    clearHistory(){
+        this.setState({
+            searchHistory: [],
+        })
+    }
     
 render() {
-    //add on click to image, then dispatch an action that passes the movie id
-    //then set up action to make a request with movie id
+
     let imagesAndTitles = this.props.movieList.map((title, i, j, x) => {
         if (title.poster_path) {
             const tvOrMovie = title.title ? 'movie' : 'tv'
@@ -86,16 +88,19 @@ render() {
                 tvOption={this.tvOption}
                 movieOption={this.movieOption}
             />
+            {/* <DynamicHistory /> */}
         </section>
     );
 }
 }
 
 const mapStateToProps = (state) => {
+    console.log(state)
     return {
         castInfo: state.info.castInfo,
         movieList: state.info.movieList,
         movieId: state.info.movieId,
+        recentSearches: state.history.recentSearches,
     }
 };
 

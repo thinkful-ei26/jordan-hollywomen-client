@@ -15,21 +15,23 @@ import {
     FETCH_HISTORY_SUCCESS,
     FETCH_HISTORY_ERROR,
 
-} from '..actions/get-history';
+} from '../actions/get-history';
 
 import {
     FETCH_ADD_HISTORY_REQUEST,
     FETCH_ADD_HISTORY_SUCCESS,
     FETCH_ADD_HISTORY_ERROR,
 
-} from '..actions/add-history';
+} from '../actions/add-history';
 
 const initialState = {
-    searchTerm: '',
-    searchDate: '',
     movieList: [],
     loading: false,
     error: null
+}
+
+const initialHistoryState = {
+    recentSearches: [],
 }
 
 const castInitialState = {
@@ -83,7 +85,7 @@ export function castReducer(state = castInitialState, action) {
     return state;
 }
 
-export function getHistoryReducer(state = initialState, action){
+export function historyReducer(state = initialHistoryState, action){
     if (action.type === FETCH_HISTORY_REQUEST){
         return Object.assign({}, state, {
             loading: true,
@@ -93,6 +95,7 @@ export function getHistoryReducer(state = initialState, action){
         return Object.assign({}, state, {
             searchTerm: action.searchTerm,
             searchDate: action.searchDate,
+            recentSearches: action.recentSearches,
             loading: false, 
             error: null
         });
@@ -102,23 +105,22 @@ export function getHistoryReducer(state = initialState, action){
             error: action.error
         })
     }
-    return state;
-}
 
-export function addHistoryReducer(state = initialState, action){
-    if (action.type === FETCH_HISTORY_REQUEST){
+    if (action.type === FETCH_ADD_HISTORY_REQUEST){
         return Object.assign({}, state, {
             searchTerm: action.searchTerm,
             searchDate: action.searchDate,
             loading: true,
             error: null
         });
-    } else if (action.type === FETCH_HISTORY_SUCCESS){
+    } else if (action.type === FETCH_ADD_HISTORY_SUCCESS){
+        console.log(action)
         return Object.assign({}, state, {
             loading: false, 
-            error: null
+            error: null,
+            recentSearches: [...state.recentSearches, action.data] 
         });
-    } else if (action.type === FETCH_HISTORY_ERROR){
+    } else if (action.type === FETCH_ADD_HISTORY_ERROR){
         return Object.assign({}, state, {
             loading: false,
             error: action.error
