@@ -1,20 +1,19 @@
 import React, { Component } from 'react';
+
 import Header from './header';
 import NavBar from './nav-bar';
-import DynamicFavorites from './dynamic-favorites';
 
 import './search-history.css';
 
 
-export default class Favorites extends Component {
+export default class History extends Component {
 
     render() {
         return (
-            <section className="favorites">
+            <section className="history">
                 <div className="nav-display">
-                    <Header />
                     <NavBar />
-                    <DynamicFavorites />
+                    <Header />
                 </div>
             </section>
         )
