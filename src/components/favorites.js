@@ -6,7 +6,7 @@ import NavBar from './nav-bar';
 import './search-history.css';
 
 
-export default class History extends Component {
+export default class Favorites extends Component {
 
     render() {
         return (

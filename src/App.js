@@ -3,7 +3,9 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import { connect } from 'react-redux'
 // import './App.css';
 import Dashboard from './components/dashboard';
-import History from './components/history'
+import History from './components/history';
+import Favorites from './components/favorites';
+
 
 class App extends Component {
 
@@ -14,6 +16,7 @@ class App extends Component {
           <div>
             <Route exact path="/" component={Dashboard}/>
             <Route path="/userhistory" component={History}/>
+            <Route path="/userfavorites" component={Favorites}/>
           </div>
       </BrowserRouter>
       </div>

@@ -17,7 +17,7 @@ export class Header extends Component {
                         <p><b>HollyWomen</b> tells you the percentage of females cast in any TV Show or Movie.</p>
                     </div>
                     <div className="how-to">
-                            How does it work? {this.props.howTo}
+                            How does it work? {this.props.howTo} <br/><br/>
                     </div>
                     </div>
                 </section>
