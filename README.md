@@ -2,6 +2,8 @@
 
 HollyWomen, at it's core, is a demographics calculator. It is an app that allows users to see how many women, in direct comparison to men, were cast in their favorite films or TV shows. HollyWomen is designed to inform users on the gender inclusivity of a specific film or tv project. A user may search film and TV titles, with an aditional option to save them to a 'Must Watch' or 'Don't Watch' list. Use HollyWomen to the gather simple demographics for educational purposes only. 
 
+# Heroku link for live version https://gentle-chamber-56864.herokuapp.com/
+
 # Features:
 
 - Landing page for user onboarding that includes information on what HollyWomen is, why the app was created, and how to use it. 
@@ -27,5 +29,4 @@ https://github.com/thinkful-ei26/jordan-hollywomen-server
 - Redux for state management
 
 # CI:
-- Heroku
 - TravisCI
