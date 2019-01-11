@@ -1,34 +1,23 @@
 import React, { Component } from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
+import { connect } from 'react-redux'
 // import './App.css';
+import Dashboard from './components/dashboard';
 
-import AppInfo from './components/app-info';
-import Header from './components/header';
-import SearchForm from './components/search-form';
-// import SearchHistory from './components/dynamic-history';
-
-// import { connect } from 'react-redux';
-
-
-export default class App extends Component {
+class App extends Component {
 
   render() {
     return (
       <div className="App">
-        <Header />
-        <SearchForm />
-        {/* <SearchHistory /> */}
-        <br/><br/><br/>
-        <AppInfo />
+      <BrowserRouter>
+          <div>
+            <Route exact path="/" component={Dashboard}/>
+            <Route path="/userhistory" component={History}/>
+          </div>
+      </BrowserRouter>
       </div>
     );
   }
 }
 
-// const mapStateToProps = (state) => {
-//   // console.log(state)
-//   return {
-    
-//   }
-// }
-
-// export default connect(mapStateToProps)(App);
+export default connect()(App)

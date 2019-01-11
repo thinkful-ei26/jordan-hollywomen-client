@@ -1,6 +1,5 @@
 import React, { Component} from 'react';
 import { connect } from 'react-redux';
-
 import { fetchHistory } from '../actions/get-history';
 import { fetchAddHistory } from '../actions/add-history';
 
@@ -73,8 +72,8 @@ export class SearchHistory extends Component {
         const count = 0;
         const termSearch = () => {
             for (let i = 0; i < searches.length; i++){
-                console.log('term:', this.term[i])
-                let regx = new RegExp("\\b" + this.term[i].toLowercase() + "\\b");
+                console.log('term:', this.searches.searchTerm[i])
+                let regx = new RegExp("\\b" + this.searches.searchTerm[i].toLowercase() + "\\b");
                 let found = searches.toLowercase().match(regx);
                 console.log("found:", found)
                 if(found){
@@ -93,20 +92,20 @@ export class SearchHistory extends Component {
         }    
 
         return (
-            <div className="dynamic-history" onSubmit={() => this.onSubmit()}>
-                <div className="search-history-label">
-                    <label>Recent Searches:</label>
+                <div className="dynamic-history" onSubmit={() => this.onSubmit()}>
+                    <div className="search-history-label">
+                        <label>Recent Searches:</label>
+                    </div>
+                    <div className="history-uls">
+                        <ul id="searchHistory" className="searchBox clearfix">
+                            {searches}
+                            {termFrequencyResults}
+                        </ul>
+                    </div>
+                    <div className="button-clear-history">
+                        <button className="clear-history" onClick={() => this.clearHistory()}>Clear History</button>
+                    </div>
                 </div>
-                <div className="history-uls">
-                    <ul id="searchHistory" className="searchBox clearfix">
-                        {searches}
-                        {/* {termFrequencyResults} */}
-                    </ul>
-                </div>
-                <div className="button-clear-history">
-                    <button className="clear-history" onClick={() => this.clearHistory()}>Clear History</button>
-                </div>
-            </div>
         );
     };
 };

@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
-// import { Router } from 'react-router-dom';
 
 import './app-info.css';
 
 
 export class AppInfo extends Component {
 
+    componentDidMount() {     
+        this.refs.howTo.scrollIntoView(); // scroll...
+       }
+
     render(){
         return (
-            // <Router>
                 <div className="overlay">
                     <div className="content">
                         <h3>What is HollyWomen?</h3>
@@ -20,7 +22,6 @@ export class AppInfo extends Component {
                         <p><b>How do I use it?</b><br/>Enter a search term and select either TV or Movie from the drop down menu to get the posters and titles from everything that matches. All you have to do next is click on the poster!</p>
                     </div>
                 </div>
-           // {/* </Router> */}
         );
     }
 }

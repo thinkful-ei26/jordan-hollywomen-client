@@ -1,21 +1,13 @@
 import './header.css'
 
 import React, { Component } from 'react';
-// import { Router, Link } from 'react-router-dom';
-
 // import AppInfo from './app-info';
-// import { SearchHistory } from './dynamic-history'
 
 
 export class Header extends Component {
 
-    howTo(ref) {
-        ref.focus();
-    }
-
     render(){
         return (
-            // <Router history={SearchHistory}>
                 <section className="header-history">
                     <div className="Header">
                         <header className="App-header">
@@ -25,13 +17,10 @@ export class Header extends Component {
                         <p><b>HollyWomen</b> tells you the percentage of females cast in any TV Show or Movie.</p>
                     </div>
                     <div className="how-to">
-                        {/* <Link to='/components' component={<AppInfo/>} howTo={this.howTo} style={{color: 'white'}} activeStyle={{color: 'red'}}>
-                            HOW DOES IT WORK?
-                        </Link> */}
+                            HOW DOES IT WORK? {this.props.howTo}
                     </div>
                     </div>
                 </section>
-        //  {/* </Router> */}
         );
     }
 }
