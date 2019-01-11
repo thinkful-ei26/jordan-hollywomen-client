@@ -14,8 +14,8 @@ export default class History extends Component {
         return (
             <section className="history">
                 <div className="nav-display">
-                    <Header />
                     <NavBar />
+                    <Header />
                     <DynamicHistory />
                 </div>
             </section>

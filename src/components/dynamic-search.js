@@ -3,7 +3,7 @@ import { fetchTvInfo, fetchMovieInfo } from '../actions/get-ids';
 import { fetchAddHistory } from '../actions/add-history';
 
 import { connect } from 'react-redux';
-import DynamicHistory from './dynamic-history';
+// import DynamicHistory from './dynamic-history';
 
 import './movie-search-form.css';
 
@@ -36,7 +36,6 @@ export class DynamicSearch extends Component {
                         </select><br/>
                             <button type="submit">Search!!!</button><br/><br/>
                     </div>
-                    <DynamicHistory />
                 </form>
             </div>
         );

@@ -11,8 +11,8 @@ class Dashboard extends Component {
   render() {
     return (
       <div className="dashboard">
-            <Header />
             <NavBar />
+            <Header />
             <SearchForm /><br/><br/><br/>
             <AppInfo />
       </div>
