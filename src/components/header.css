@@ -5,7 +5,9 @@ h1 {
 	margin: 0 auto;
 	padding: 0;
 	color: rgb(6, 32, 22);
+	background: #29c589;
 	position: relative;
+	opacity: 10%;
 }
 
 .App-header {

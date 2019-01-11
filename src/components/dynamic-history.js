@@ -68,22 +68,39 @@ export class SearchHistory extends Component {
             </div>
         ));
     
-        console.log('recent searches:', searches)
+        console.log('all searches:', searches)
 
-        const history = this.props.recentSearches.map((search, i) => {
-            return (
-                <div key={i}>{search.searchTerm}</div>
-            )
-        })
+        const count = 0;
+        const termSearch = () => {
+            for (let i = 0; i < searches.length; i++){
+                console.log('term:', this.term[i])
+                let regx = new RegExp("\\b" + this.term[i].toLowercase() + "\\b");
+                let found = searches.toLowercase().match(regx);
+                console.log("found:", found)
+                if(found){
+                    this.count = count + found.length;
+                }
+                console.log("count:", this.count)
+            }
+        }
+
+        const termFrequencyResults = () => {
+            let algo = count / searches.length
+            if(algo*termSearch > 0) {
+                return searches
+            }
+            console.log('results:', termFrequencyResults)
+        }    
 
         return (
             <div className="dynamic-history" onSubmit={() => this.onSubmit()}>
                 <div className="search-history-label">
-                    <label for="searchHistory">Recent Searches:</label>
+                    <label>Recent Searches:</label>
                 </div>
                 <div className="history-uls">
                     <ul id="searchHistory" className="searchBox clearfix">
-                        {history}
+                        {searches}
+                        {/* {termFrequencyResults} */}
                     </ul>
                 </div>
                 <div className="button-clear-history">

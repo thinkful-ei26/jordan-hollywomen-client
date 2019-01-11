@@ -76,7 +76,7 @@ render() {
                 </div>  
             )
         }
-            return title.backdrop_path
+            return null
     })
 
     return (
@@ -88,7 +88,6 @@ render() {
                 tvOption={this.tvOption}
                 movieOption={this.movieOption}
             />
-            {/* <DynamicHistory /> */}
         </section>
     );
 }
