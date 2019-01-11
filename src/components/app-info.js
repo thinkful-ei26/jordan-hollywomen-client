@@ -5,9 +5,9 @@ import './app-info.css';
 
 export class AppInfo extends Component {
 
-    componentDidMount() {     
-        this.refs.howTo.scrollIntoView(); // scroll...
-       }
+    // componentDidMount() {     
+    //     this.refs.howTo.scrollIntoView(); // scroll...
+    //    }
 
     render(){
         return (

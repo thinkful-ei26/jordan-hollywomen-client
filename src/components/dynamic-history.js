@@ -67,29 +67,29 @@ export class SearchHistory extends Component {
             </div>
         ));
     
-        console.log('all searches:', searches)
+        // console.log('all searches:', searches)
 
-        const count = 0;
-        const termSearch = () => {
-            for (let i = 0; i < searches.length; i++){
-                console.log('term:', this.searches.searchTerm[i])
-                let regx = new RegExp("\\b" + this.searches.searchTerm[i].toLowercase() + "\\b");
-                let found = searches.toLowercase().match(regx);
-                console.log("found:", found)
-                if(found){
-                    this.count = count + found.length;
-                }
-                console.log("count:", this.count)
-            }
-        }
+        // const count = 0;
+        // const termSearch = () => {
+        //     for (let i = 0; i < searches.length; i++){
+        //         console.log('term:', this.searches.searchTerm[i])
+        //         let regx = new RegExp("\\b" + this.searches.searchTerm[i].toLowercase() + "\\b");
+        //         let found = searches.toLowercase().match(regx);
+        //         console.log("found:", found)
+        //         if(found){
+        //             this.count = count + found.length;
+        //         }
+        //         console.log("count:", this.count)
+        //     }
+        // }
 
-        const termFrequencyResults = () => {
-            let algo = count / searches.length
-            if(algo*termSearch > 0) {
-                return searches
-            }
-            console.log('results:', termFrequencyResults)
-        }    
+        // const termFrequencyResults = () => {
+        //     let algo = count / searches.length
+        //     if(algo*termSearch > 0) {
+        //         return searches
+        //     }
+        //     console.log('results:', termFrequencyResults)
+        // }    
 
         return (
                 <div className="dynamic-history" onSubmit={() => this.onSubmit()}>
@@ -99,7 +99,7 @@ export class SearchHistory extends Component {
                     <div className="history-uls">
                         <ul id="searchHistory" className="searchBox clearfix">
                             {searches}
-                            {termFrequencyResults}
+                            {/* {termFrequencyResults} */}
                         </ul>
                     </div>
                     <div className="button-clear-history">
