@@ -34,7 +34,7 @@ export class DynamicSearch extends Component {
                             <option id="1" ref={(tvOption) => this.tvOption = tvOption} required>TV</option>
                             <option id="2" ref={(movieOption) => this.movieOption = movieOption} required>Movies</option>  
                         </select><br/>
-                            <button type="submit">Search!!!</button><br/><br/>
+                            <button type="submit">Search</button><br/><br/>
                     </div>
                 </form>
             </div>
