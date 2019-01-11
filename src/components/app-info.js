@@ -5,10 +5,6 @@ import './app-info.css';
 
 export class AppInfo extends Component {
 
-    // componentDidMount() {     
-    //     this.refs.howTo.scrollIntoView(); // scroll...
-    //    }
-
     render(){
         return (
                 <div className="overlay">
@@ -18,8 +14,8 @@ export class AppInfo extends Component {
                             Netflix and other streaming sites have even created categories like 'Strong Female Lead' 
                             because women with starring roles in Hollywood is such a rarity.</p>
                     </div>
-                    <div className="how-to-sub" ref={(howTo) => this.howTo = howTo}>  
-                        <p><b>How do I use it?</b><br/>Enter a search term and select either TV or Movie from the drop down menu to get the posters and titles from everything that matches. All you have to do next is click on the poster!</p>
+                    <div className="how-to">  
+                        <footer>Enter a search term and select either TV or Movie from the drop down menu to get the posters and titles from everything that matches. All you have to do next is click on the poster!</footer>
                     </div>
                 </div>
         );

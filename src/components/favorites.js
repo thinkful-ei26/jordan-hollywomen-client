@@ -10,7 +10,7 @@ export default class Favorites extends Component {
 
     render() {
         return (
-            <section className="history">
+            <section className="favorites">
                 <div className="nav-display">
                     <NavBar />
                     <Header />
