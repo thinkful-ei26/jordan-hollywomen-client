@@ -1,7 +1,6 @@
 import './header.css'
 
 import React, { Component } from 'react';
-// import ScrollIntoView from 'react-scroll-into-view'
 
 export class Footer extends Component {
 
