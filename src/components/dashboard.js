@@ -3,8 +3,9 @@ import { connect } from 'react-redux'
 
 import AppInfo from './app-info';
 import Header from './header';
-import SearchForm from './search-form';
 import NavBar from './nav-bar';
+// import { DynamicDisplay } from './dynamic-display';
+import DynamicFeedback from './dynamic-feedback';
 
 class Dashboard extends Component {
 
@@ -13,7 +14,7 @@ class Dashboard extends Component {
       <div className="dashboard">
             <NavBar />
             <Header />
-            <SearchForm /><br/><br/><br/>
+            <DynamicFeedback /><br/><br/><br/>
             <AppInfo />
       </div>
     );

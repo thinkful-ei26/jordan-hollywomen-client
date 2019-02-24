@@ -2,7 +2,6 @@ import React, { Component} from 'react';
 import Modal from 'react-modal';
 import { connect } from 'react-redux';
 
-// import { fetchTvCast, fetchMovieCast } from '../actions/get-cast';
 import DynamicDisplay from './dynamic-display';
 
 import './imagetitledisplay.css';
@@ -27,9 +26,6 @@ class DynamicModal extends Component {
 
     this.state = {
         modalIsOpen: false,
-        tvSelected: false,
-        movieSelected: false,
-        clicked: false
     };
 
     this.openModal = this.openModal.bind(this);
@@ -73,14 +69,9 @@ class DynamicModal extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        tvList: state.info.tvList,
-        tvCastInfo: state.info.tvCastInfo,
-        tvModalVisible: state.cast.tvModalVisible,
-        movieList: state.info.movieList,
-        movieCastInfo: state.info.movieCastInfo,
-        movieId: state.info.id,
-        movieModalVisible: state.cast.movieModalVisible
-
+        tvData: state.graphql.searchTerm.tv || [],
+        movieData: state.graphql.searchTerm.movie || [],
+        recentSearches: state.history.recentSearches,
     }
 };
 

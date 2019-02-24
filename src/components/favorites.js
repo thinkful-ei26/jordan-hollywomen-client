@@ -10,9 +10,8 @@ export default class Favorites extends Component {
 
     render() {
 
-        console.log('all searches:', searches)
-
-        let searches = this.props.recentSearches.map((searchTerm, i, x) => (
+        let searches = this.props.recentSearches.map(
+            (searchTerm, i, x) => (
             <div className="history" key={i}>
                 <li key={x}>
                     {searchTerm.searchTerm}
