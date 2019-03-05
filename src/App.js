@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { connect } from 'react-redux'
-// import './App.css';
+import './App.css';
 import Dashboard from './components/dashboard';
 import History from './components/history';
 import Favorites from './components/favorites';
