@@ -16,9 +16,9 @@ export class Header extends Component {
                         <p><b>HollyWomen</b> tells you the percentage of females cast in any TV Show or Movie.</p>
                     </div>
                     {/* for mobile device users -- brings how-to footer into focus */}
-                    <ScrollIntoView selector=".how-to">
+                    {/* <ScrollIntoView selector=".how-to">
                         <button>How does it work?</button>
-                    </ScrollIntoView>
+                    </ScrollIntoView> */}
                     </div>
                 </section>
         );

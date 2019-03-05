@@ -1,6 +1,6 @@
   .nav ul {
     list-style: none;
-    background-color: #636363;
+    background-color: #6363635b;
     /* height: 50px; */
     /* width: 200px; */
     text-align: center;
@@ -8,12 +8,12 @@
     margin: 0;
   }
   .nav li {
-    background-color: #636363;
     font-size: 15px;
     font-weight: 200;
     line-height: 30px;
     height: 20px;
-    border-bottom: 1px solid #888;
+    border-bottom: 1px solid rgba(136, 136, 136, 0.103);
+    padding: 5px;
   }
    
   .nav a {
@@ -40,7 +40,7 @@
       border-bottom: none;
       height: 50px;
       line-height: 50px;
-      font-size: 1.4em;
+      font-size: 16px;
     }
    
     .nav li {

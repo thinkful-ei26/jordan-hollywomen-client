@@ -13,11 +13,11 @@ export default class NavBar extends Component {
                                 <Link to="/" style={{color: 'white'}} >Home</Link>
                             </li>
                             <li className="nav">
-                                <Link to="/userhistory" style={{color: 'white'}} >History</Link>
+                                <Link to="/userhistory" style={{color: 'white'}} >Search History</Link>
                             </li>
-                            <li className="nav">
+                            {/* <li className="nav">
                                 <Link to="/userfavorites" style={{color: 'white'}} >Favorites</Link>
-                            </li>
+                            </li> */}
                         </ul>
                 </nav>
             </div>

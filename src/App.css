@@ -25,14 +25,6 @@ html {
   flex-wrap: wrap;
 }
 
-input {
-  border-radius: 8px;
-  border-style: none;
-  border: 1px solid #e4e6e8;
-  transition: 0.1s ease;
-  max-width: 100%;
-}
-
 input:hover {
   border-color: rgb(52, 110, 98);
 }
@@ -40,14 +32,6 @@ input:hover {
 img {
   border-style: none;
   max-width: 100%;
-}
-
-button {
-  border: 1px solid #e4e6e8;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: 0.1s ease-in;
-  background: transparent;;
 }
 
 button:hover {
@@ -59,14 +43,9 @@ button:hover {
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-}
-
 /* .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  background-color: #282c3400;
+  height: 25vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -75,6 +54,3 @@ button:hover {
   color: white;
 } */
 
-.App-link {
-  color: #61dafb;
-}

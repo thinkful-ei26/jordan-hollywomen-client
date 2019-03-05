@@ -1,20 +1,59 @@
-h2 {
-	margin: 0 auto;	
-	background: #ffffff;
-	padding: 1em 0.4em;
-    font-size: 1.5em;
- 	font-weight: 315;
-	display: inline-block;
-	line-height: 1em;
-	border-top-left-radius: 4px;
-	border-top-right-radius: 4px;
-	color: rgb(8, 8, 8);
+.search-form {
+	padding: 0px;
+	margin: 0 auto;
+	margin: 10px;
+	text-align: center;
 }
 
-.search-form {
-        padding: 0;
-        margin: 0;
-        font-weight: 300;
-        font-size: 1.15em;
-        text-align: center;
+.search-tv-title {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
 }
+
+img {
+	border: 1px solid #ddd; /* Gray border */
+	border-radius: 4px;  /* Rounded border */
+	padding: 5px; /* Some padding */
+	width: 100px; /* Set a small width */
+  }
+  
+  /* Add a hover effect (blue shadow) */
+  img:hover {
+	box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+  }
+  
+  input#search-term {
+	padding-bottom: 10px;
+	border-radius: 3px;
+	border: 1px solid #e4e6e8;
+	transition: 0.1s ease;
+	width: 250px;
+	margin: 0 auto; 
+	padding: 10px 15px;
+	max-width: 100%;
+	font-weight: bold;
+	text-align: center;
+  }
+  
+  select#search-select {
+	margin: 0 auto;
+	padding: 8px 15px;
+	/* font-weight: bold; */
+	margin-top: 10px;
+	margin-bottom: 0px;
+	text-align: center;
+  }
+  
+  button#search-button {
+	border: 1px solid #e4e6e8;
+	border-radius: 3px;
+	cursor: pointer;
+	transition: 0.1s ease-in;
+	background: transparent;
+	margin: 0 auto;
+	padding: 8px 15px;
+	font-weight: bold;
+	/* margin-top: 10px; */
+	/* margin-bottom: 0px; */
+  }
