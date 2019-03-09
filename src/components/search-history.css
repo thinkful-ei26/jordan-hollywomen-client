@@ -1,14 +1,25 @@
+.history {
+	justify-content: center;
+}
+
+.nav-display {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	height: 100%;
+	width: 100%;
+}
+
 ul.searchBox {
 	font-size: 15px;
-	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-	margin-left: 5px;
-	margin-right: 5px;
+	margin-left: 40px;
+	margin-right: 40px;
 	background: #dfdcdc;
-	padding: 1em;
+	padding: 20px;
 	color: rgb(1, 17, 7);
 	overflow: auto;
 	border-radius: 3px;
-	line-height: 1.4em;
+	line-height: 3px;
 }
 
 ul.searchBox li {
@@ -21,3 +32,15 @@ ul.searchBox li {
 	color: rgb(255, 255, 255);
 	margin: 1px;
 }
+
+.dynamic-history {
+	border: 1px solid #4a4f555b;
+	margin-left: 25%;
+	margin-right: 25%;
+  }
+  
+  button.clear-history {
+	display: inline-flex;
+	height: 15px;
+	box-align: center;
+  }

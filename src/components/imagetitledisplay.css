@@ -13,11 +13,7 @@
 }
 
 .display {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    /* width: 100%;
-    max-width: 500px; */
+    padding: 20px;
 }
 
 img {
@@ -38,16 +34,4 @@ li {
 
 img:hover {
  transform: scale (1.1);
-}
-
-.dynamic-history {
-  display: inline-block;
-  width: 170px;
-  border: 1px solid #66a7ff66
-}
-
-button.clear-history {
-  display: inline-flex;
-  height: 15px;
-  box-align: center;
 }

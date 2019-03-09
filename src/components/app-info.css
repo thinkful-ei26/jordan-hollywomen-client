@@ -1,15 +1,15 @@
 .overlay {
-	background: #29c589;
+	background: #39a58e;
 }
 
 .content {
 	color: #fff;
-	background: #29c589;
+	background: #39a58e;
 	position: center;
-	height: auto;
 	border-radius: 3px;
-	margin: auto auto;
-	border: 1px solid rgba(0,0,0,0.1);
+	margin: 0 auto;
+	padding-bottom: 0px;
+	border: 1px solid rgba(255, 254, 254, 0.541);
 }
 
 .content h3 {
@@ -39,6 +39,15 @@
 	text-align: center;
 }
 
+.how-to {
+	margin-top: 15px;
+}
+
 .how-to h5{
-	margin-top: 0px;
+	font-size: 16px;
+	color: rgba(0, 0, 0, 0.685);
+}
+
+.how-to footer {
+	color: rgba(0, 0, 0, 0.541);
 }
