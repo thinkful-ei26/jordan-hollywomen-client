@@ -6,9 +6,7 @@
 }
 
 .search-tv-title {
-	display: flex;
-	flex-direction: column;
-	text-align: center;
+	padding: 10px;
 }
 
 img {
@@ -37,9 +35,7 @@ img {
   }
   
   select#search-select {
-	margin: 0 auto;
-	padding: 8px 15px;
-	/* font-weight: bold; */
+	height: 34px;
 	margin-top: 10px;
 	margin-bottom: 0px;
 	text-align: center;
@@ -52,8 +48,7 @@ img {
 	transition: 0.1s ease-in;
 	background: transparent;
 	margin: 0 auto;
-	padding: 8px 15px;
+	padding: 10px 25px;
 	font-weight: bold;
-	/* margin-top: 10px; */
-	/* margin-bottom: 0px; */
+	margin-top: 10px;
   }
