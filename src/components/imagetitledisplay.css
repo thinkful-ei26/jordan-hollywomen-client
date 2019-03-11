@@ -1,32 +1,21 @@
-.dynamic-display {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-
-.box {
-  max-width: 120px;
-  width: 100%;
-}
-
 .display {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  padding-left: 25%;
-  padding-right: 25%;
 }
 
 img {
  cursor: pointer;
 }
 
-li {
- margin: 0px;
- font-weight: 200;
- font-size: .75em;
+li#title {
+ font-size: 12px;
+ max-width: 100px;
+ width: 100%;
  text-align: center;
  list-style-type: none;
+ color: white;
+ font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 img:hover {
@@ -41,4 +30,21 @@ img:hover {
     margin-left: 25%;
     margin-right: 25%;
   }
+
+  li#title{
+    color: oldlace;
+    width: 100%;
+    max-width: 200px;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .display {
+    justify-content: center;
+  }
+
+  img {
+    padding: 10px;
+    margin: 10px;
+   }
 }

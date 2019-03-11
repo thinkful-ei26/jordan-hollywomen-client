@@ -1,11 +1,25 @@
 h1 {
-	font-weight: 750;
-	font-size: 48px;
-	margin: 0 auto;
-	padding: 0;
-	color: rgb(255, 255, 255);
-	background: #39a58e;
-	position: relative;
+	font-size: 58px;
+    color: rgb(250, 242, 242);
+    position: relative;
+	margin-bottom: 0px;
+	font-weight: lighter;
+}
+
+#header-sub-1 {
+	font-family: Playfair-Display;
+	margin-top: 0px;
+	font-size: 20px;
+	font-weight: bolder;
+	color: rgba(255, 255, 255, 0.616);
+	word-spacing: 2px;
+	letter-spacing: 2px;
+}
+
+#header-sub {
+	font-family: Playfair-Display;
+	color: rgba(255, 255, 255, 0.733);
+	display: none;
 }
 
 .App-header {

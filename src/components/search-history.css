@@ -2,45 +2,42 @@
 	justify-content: center;
 }
 
-.nav-display {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	height: 100%;
-	width: 100%;
+.dynamic-history {
+	padding: 10px;
+	margin-top: 10px;
 }
 
 ul.searchBox {
-	font-size: 15px;
 	margin-left: 40px;
 	margin-right: 40px;
-	background: #dfdcdc;
+	margin-top: 0px;
+	background:rgba(245, 245, 245, 0.527);
 	padding: 20px;
 	color: rgb(1, 17, 7);
 	overflow: auto;
 	border-radius: 3px;
-	line-height: 3px;
 }
 
 ul.searchBox li {
-	background-color: #66a7ff;
-	font-size: 15px;
-	padding: 0.2em;
+	font-size: 28px;
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
 	border-radius: 12px;
-	color: rgb(255, 255, 255);
+	color: rgb(0, 0, 0);
 	margin: 1px;
+	line-height: 1;
+	list-style: none;
+	font-family: Playfair-Display;
 }
-
-.dynamic-history {
-	border: 1px solid #4a4f555b;
-	margin-left: 25%;
-	margin-right: 25%;
-  }
   
   button.clear-history {
 	display: inline-flex;
 	height: 15px;
 	box-align: center;
+  }
+
+ label {
+	  font-size: 28px;
+	  letter-spacing: 3px;
+	  color: rgb(245, 230, 230); 
   }

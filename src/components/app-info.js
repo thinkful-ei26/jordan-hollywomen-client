@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-
+import Header from './header';
+import NavBar from './nav-bar';
 import './app-info.css';
 
 
@@ -7,6 +8,9 @@ export class AppInfo extends Component {
 
     render(){
         return (
+            <div className="about">
+                <Header />
+                <NavBar />
                 <div className="overlay">
                     <div className="content">
                         <h3>What is HollyWomen?</h3>
@@ -19,6 +23,7 @@ export class AppInfo extends Component {
                         <footer>Enter a search term and select either TV or Movie from the drop down menu to get the posters and titles from everything that matches. All you have to do next is click on the poster!</footer>
                     </div>
                 </div>
+            </div>
         );
     }
 }

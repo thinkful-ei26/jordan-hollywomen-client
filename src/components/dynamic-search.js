@@ -28,6 +28,7 @@ export class DynamicSearch extends Component {
             <div>
                 <form className="search-form" onSubmit={(e) => this.search(e)}>
                     <div className="search-tv-title">
+                        <label id="search-label" for="search-term">Enter your search: </label>
                         <input ref={(input) => this.searchTerm = input} type="text" name="search-term" id="search-term" placeholder="Search Tv or Movies" required/>
                         <select id="search-select">
                             <option id="1" ref={(tvOption) => this.tvOption = tvOption} required>TV</option>

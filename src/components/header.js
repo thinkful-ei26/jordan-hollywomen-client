@@ -12,9 +12,8 @@ export class Header extends Component {
                         <header className="App-header">
                             <h1>HollyWomen</h1>
                         </header>
-                    <div className="content-sub">  
-                        <p><b>HollyWomen</b> tells you the percentage of females cast in any TV Show or Movie.</p>
-                    </div>
+                        <p id="header-sub-1">Gender Demographics</p>
+                        <p id="header-sub">Discover the percentage of females cast in any TV Show or Movie.</p>
                     {/* for mobile device users -- brings how-to footer into focus */}
                     {/* <ScrollIntoView selector=".how-to">
                         <button>How does it work?</button>

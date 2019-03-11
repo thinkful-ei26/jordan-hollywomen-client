@@ -1,27 +1,15 @@
-* {
-  outline: 0;
+html {
+  height: 100%;
+  width: 100%;
 }
 
 body {
-  font-family: 
-    "rubik";
+  font-family: 'Pacifico', cursive;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #F4F4F4;
+  background:  rgb(12, 24, 27);
   list-style: none;
-  margin: auto auto;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
-
-html {
-  text-align: center;
-  box-sizing: border-box;
-  max-width: 100%;
-  flex-wrap: wrap;
+  background-repeat: none;
 }
 
 input:hover {
@@ -41,15 +29,4 @@ button:hover {
 .App {
   text-align: center;
 }
-
-/* .App-header {
-  background-color: #282c3400;
-  height: 25vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-} */
 

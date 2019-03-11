@@ -93,8 +93,6 @@ export function historyReducer(state = initialHistoryState, action){
         });
     } else if (action.type === FETCH_HISTORY_SUCCESS){
         return Object.assign({}, state, {
-            searchTerm: action.searchTerm,
-            searchDate: action.searchDate,
             recentSearches: action.recentSearches,
             loading: false, 
             error: null
@@ -108,8 +106,6 @@ export function historyReducer(state = initialHistoryState, action){
 
     if (action.type === FETCH_ADD_HISTORY_REQUEST){
         return Object.assign({}, state, {
-            searchTerm: action.searchTerm,
-            searchDate: action.searchDate,
             loading: true,
             error: null
         });

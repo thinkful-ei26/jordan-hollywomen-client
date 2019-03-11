@@ -72,7 +72,7 @@ render() {
                         src={`https://image.tmdb.org/t/p/w500${title.poster_path}`} 
                         alt="thumbnail"
                         key={j}/>
-                    <li key={x}>{title.title || title.name}</li>  
+                    <li id="title" key={x}>{title.title || title.name}</li>  
                 </div>  
             )
         }
@@ -81,13 +81,13 @@ render() {
 
     return (
         <section className = "dynamic-display" onSubmit={() => this.submit()}>
-            <div className="display" ref={(image) => this.currentImage = image} onSubmit={() => this.clearSubmit()}>
-                {imagesAndTitles}
-            </div>
             <DynamicSearch 
                 tvOption={this.tvOption}
                 movieOption={this.movieOption}
             />
+            <div className="display" ref={(image) => this.currentImage = image} onSubmit={() => this.clearSubmit()}>
+                {imagesAndTitles}
+            </div>
         </section>
     );
 }

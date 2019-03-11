@@ -1,34 +1,30 @@
-.overlay {
-	background: #39a58e;
-}
-
 .content {
 	color: #fff;
-	background: #39a58e;
 	position: center;
-	border-radius: 3px;
 	margin: 0 auto;
 	padding-bottom: 0px;
-	border: 1px solid rgba(255, 254, 254, 0.541);
+	font-family: Playfair-Display;
+	margin-top: 70px;
+}
+
+.overlay {
+	background: rgb(12, 24, 27);
 }
 
 .content h3 {
 	margin: 0;
 	padding-top: 0px;
 	text-align: center;
-	font-size: 2.4em;
+	font-size: 26px;
 	font-weight: 300;
-	opacity: 0.8;
-	background: rgba(0,0,0,0.1);
-	border-radius: 3px 3px 0 0;
+	color: rgb(245, 230, 230);
 }
 
 .content p {
 	padding: 15px 40px 30px;
-	margin: 0;
-	font-weight: 300;
 	font-size: 16px;
 	text-align: center;
+	color: rgb(255, 255, 255);
 }
 
 .content-sub p {
@@ -41,13 +37,14 @@
 
 .how-to {
 	margin-top: 15px;
+	font-family: Playfair-Display;
 }
 
 .how-to h5{
 	font-size: 16px;
-	color: rgba(0, 0, 0, 0.685);
+	color:  rgb(245, 230, 230);
 }
 
 .how-to footer {
-	color: rgba(0, 0, 0, 0.541);
+	color:  rgb(255, 255, 255);
 }

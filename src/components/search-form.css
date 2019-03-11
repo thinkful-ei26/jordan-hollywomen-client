@@ -1,12 +1,17 @@
 .search-form {
-	padding: 0px;
+	padding: 10px; 
 	margin: 0 auto;
-	margin: 10px;
 	text-align: center;
 }
 
 .search-tv-title {
 	padding: 10px;
+}
+
+#search-label {
+	font-size: 28px;
+	  letter-spacing: 3px;
+	  color: rgb(245, 230, 230); 
 }
 
 img {
@@ -24,6 +29,7 @@ img {
   input#search-term {
 	padding-bottom: 10px;
 	border-radius: 3px;
+	background:rgba(245, 245, 245, 0.527);
 	border: 1px solid #e4e6e8;
 	transition: 0.1s ease;
 	width: 250px;
@@ -39,6 +45,7 @@ img {
 	margin-top: 10px;
 	margin-bottom: 0px;
 	text-align: center;
+	color: rgb(245, 230, 230);
   }
   
   button#search-button {
@@ -51,4 +58,10 @@ img {
 	padding: 10px 25px;
 	font-weight: bold;
 	margin-top: 10px;
-  }
+	color: rgb(245, 230, 230);
+	}
+	
+	button:hover {
+		box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+		color: rgb(216, 178, 184);
+		}

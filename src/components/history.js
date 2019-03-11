@@ -11,13 +11,13 @@ export default class History extends Component {
 
     render() {
         return (
-            <section className="history">
+            <div className="history">
                 <div className="nav-display">
-                    <NavBar />
                     <Header />
+                    <NavBar />
                     <DynamicHistory />
                 </div>
-            </section>
+            </div>
         )
     }
 }

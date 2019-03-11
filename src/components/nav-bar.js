@@ -10,13 +10,16 @@ export default class NavBar extends Component {
                 <nav className="nav">
                         <ul>
                             <li className="nav">
-                                <Link to="/" style={{color: 'black'}} >Home</Link>
+                                <Link to="/">Home</Link>
                             </li>
                             <li className="nav">
-                                <Link to="/userhistory" style={{color: 'black'}} >Search History</Link>
+                                <Link to="/dashboard">Dashboard</Link>
                             </li>
                             <li className="nav">
-                                <Link to="/userfavorites" style={{color: 'black'}} >Favorites</Link>
+                                <Link to="/userhistory">Search History</Link>
+                            </li>
+                            <li className="nav">
+                                <Link to="/about">Learn More</Link>
                             </li>
                         </ul>
                 </nav>

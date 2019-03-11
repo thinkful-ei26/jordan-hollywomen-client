@@ -1,60 +1,17 @@
 import React, { Component} from 'react';
 import { connect } from 'react-redux';
-import { fetchHistory } from '../actions/get-history';
-import { fetchAddHistory } from '../actions/add-history';
 
 import './search-history.css';
 
 export class SearchHistory extends Component {
-    constructor() {
-        super();
-
-    this.state = {
-        searchHistory: [],
-        currentSearch: ''
-    };
-}
-
-    handleSearchHistory(){
-        this.setState({
-            searchHistory: [...this.state.searchHistory, this.state.currentSearch]
-        })
-    };
-
-    handleCurrentSearch(e){
-        this.setState({
-            currentSearch: e
-        })
-    };
-
-    onSubmit(searchTerm, id){
-        if (searchTerm){
-            this.setState({
-                searchHistory: [...this.state.searchHistory, this.state.currentSearch]
-            })
-            this.props.dispatch(fetchHistory())
-            .then(results => {
-            this.props.formSubmit(results.data.searchHistory)
-            })
-        }
-
-        else if (id){
-            this.setState({
-                currentSearch: this.currentSearch.search,
-            })
-            this.props.dispatch(fetchAddHistory(id))
-            .then(results => {
-                console.log('results:', results)
-            this.props.formSubmit(results.data.updatedHistory)
-            })
-        }
-    }
 
     clearHistory(){
-        this.setState({
-            searchHistory: [],
-            currentSearch: '',
-        })
+        let cleared = null 
+        return (
+            <div className="clear-history">
+                    {cleared}
+            </div>
+        )
     }
 
     render() {
@@ -75,12 +32,11 @@ export class SearchHistory extends Component {
                     <div className="history-uls">
                         <ul id="searchHistory" className="searchBox clearfix">
                             {searches}
-                            {/* {termFrequencyResults} */}
                         </ul>
                     </div>
-                    <div className="button-clear-history">
+                    {/* <div className="button-clear-history">
                         <button className="clear-history" onClick={() => this.clearHistory()}>Clear History</button>
-                    </div>
+                    </div> */}
                 </div>
         );
     };
