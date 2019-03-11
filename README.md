@@ -12,9 +12,8 @@ HollyWomen, at it's core, is a demographics calculator. It is an app that allows
 - Full rendering of clickable poster images -- each one corresponding to all possibilities/matches from the user search term
 - Results Modal that displays the results (and possible a snarky comment...) 
 - When a user searches either TV or Movies, we've created endpoints to directly access the https://www.themoviedb.org API 
-- Nav bar with links to 'Most searched terms' and 'favorites'
+- Nav bar with links to 'Most searched terms'
 - Link to a separate page for 'MOST SEARCHED TERMS', a calculated list of the user's most frequent searched terms 
-- Link to a separate page for 'FAVORITES', a list of the user's saved searches 
 - Mobile-first design
 - A11y friendly
 
