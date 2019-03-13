@@ -4,7 +4,7 @@ HollyWomen, at it's core, is a demographics calculator. It is an app that allows
 
 -Heroku link for live version: https://gentle-chamber-56864.herokuapp.com/
 
-# Features:
+## Features:
 
 - Landing page for user onboarding that includes information on what HollyWomen is, why the app was created, and how to use it. 
 - Input box for a user to enter their search term
@@ -17,15 +17,19 @@ HollyWomen, at it's core, is a demographics calculator. It is an app that allows
 - Mobile-first design
 - A11y friendly
 
-# Back-end:
+## Tech-Stack
+**Back-end:**
 https://github.com/thinkful-ei26/jordan-hollywomen-server
 - Node
 - MongoDB 
 - Mongoose
 
-# Front-end:
+**Front-end:**
 - React 
 - Redux for state management
 
 # CI:
 - TravisCI
+
+## Screenshot:
+<img src='./src/assets/holly-double.png' alt='HollyWomen Screenshot' width='300px'/>
