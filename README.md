@@ -33,5 +33,21 @@ https://github.com/thinkful-ei26/jordan-hollywomen-server
 - Heroku
 - TravisCI
 
+## API:
+```
+/api
+.
+├── /search
+│   └── GET
+│       ├── /:movieTitle  <- GET movie info
+│       └── /:tvTitle <- GET tv info
+├── /movie
+│   └── GET
+│       └── /:id <- GET movie cast info
+├── /tv
+│   └── GET
+│       ├── /:id <- GET TV cast info
+```
+
 ## Screenshot:
 <img src='./src/assets/holly-double.png' alt='HollyWomen Screenshot' width='300px'/>
