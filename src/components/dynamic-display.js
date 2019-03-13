@@ -94,7 +94,6 @@ render() {
 }
 
 const mapStateToProps = (state) => {
-    console.log(state)
     return {
         castInfo: state.info.castInfo,
         movieList: state.info.movieList,

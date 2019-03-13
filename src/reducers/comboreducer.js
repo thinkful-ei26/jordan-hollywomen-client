@@ -110,7 +110,6 @@ export function historyReducer(state = initialHistoryState, action){
             error: null
         });
     } else if (action.type === FETCH_ADD_HISTORY_SUCCESS){
-        console.log(action)
         return Object.assign({}, state, {
             loading: false, 
             error: null,
