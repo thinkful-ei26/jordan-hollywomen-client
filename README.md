@@ -28,7 +28,9 @@ https://github.com/thinkful-ei26/jordan-hollywomen-server
 - React 
 - Redux for state management
 
-# CI:
+**Dev:**
+- Git/Github
+- Heroku
 - TravisCI
 
 ## Screenshot:
